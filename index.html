@@ -290,7 +290,7 @@
                     <div class="inline-flex items-center gap-2.5 px-4 py-1 rounded-full bg-white/[0.08] border border-gala-goldBright/45 backdrop-blur-md">
                         <span class="w-1.5 h-1.5 rounded-full bg-gala-goldBright"></span>
                         <span class="text-[10px] font-bold uppercase tracking-[0.34em] text-gala-goldBright">
-                            UTPL • Zona 4
+                            UTPL
                         </span>
                         <span class="w-1.5 h-1.5 rounded-full bg-gala-goldBright"></span>
                     </div>
@@ -340,16 +340,16 @@
                         </span>
                     </div>
 
-                    <!-- Hora: 8:00 PM -->
+                    <!-- Hora: 20:00 -->
                     <div class="pearl-city-card rounded-[18px] sm:rounded-[22px] py-3.5 px-2 sm:p-4 flex flex-col items-center justify-center relative overflow-hidden">
                         <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gala-sapphire/10 text-gala-sapphire flex items-center justify-center mb-1">
                             <i class="fa-regular fa-clock text-[11px] sm:text-xs"></i>
                         </div>
                         <span class="font-serif text-xl sm:text-[28px] font-extrabold text-gala-sapphire leading-none my-0.5">
-                            8:00
+                            20:00
                         </span>
                         <span class="px-2.5 py-0.5 rounded-full bg-gala-sapphire text-gala-goldBright text-[9px] font-extrabold uppercase tracking-[0.22em] mt-1">
-                            PM
+                            Horas
                         </span>
                     </div>
 
@@ -395,14 +395,14 @@
                     </button>
                 </div>
 
-                <!-- Firma -->
-                <footer class="reveal d-4 pt-3.5 border-t border-gala-gold/30 text-center md:text-right">
-                    <p class="font-editorial italic font-bold text-xl sm:text-2xl text-gala-sapphire leading-none">
-                        Karina Rojas
-                    </p>
-                    <p class="text-[9px] font-bold uppercase tracking-[0.28em] text-gala-goldDeep mt-0.5">
-                        Gerencia Comercial Zona 4
-                    </p>
+                <!-- Firma Institucional -->
+                <footer class="reveal d-4 pt-3 border-t border-gala-gold/30 flex items-center justify-center md:justify-end">
+                    <div class="inline-flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-gala-gold"></span>
+                        <p class="font-editorial italic font-semibold text-base sm:text-lg tracking-[0.03em] text-gala-sapphire">
+                            Universidad Técnica Particular de Loja
+                        </p>
+                    </div>
                 </footer>
 
             </div>
@@ -421,7 +421,7 @@
 
             <div class="text-center mb-6">
                 <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-gala-goldDeep">
-                    Viernes 11 de Diciembre • 8:00 PM • Santo Domingo
+                    Viernes 11 de Diciembre • 20:00 • Santo Domingo
                 </span>
                 <h3 class="font-serif text-xl sm:text-2xl font-bold text-gala-sapphire mt-1.5">
                     Guardar en Calendario
@@ -592,10 +592,10 @@
 
         // 2. ENLACES DE CALENDARIO
         function configurarEnlaces() {
-            const titulo = encodeURIComponent('Save the Date: Fiesta de Navidad UTPL Zona 4');
+            const titulo = encodeURIComponent('Save the Date: Fiesta de Navidad UTPL');
             const ubicacion = encodeURIComponent('Santo Domingo, Ecuador');
             const detalle = encodeURIComponent(
-                'Fiesta de Navidad UTPL Zona 4 en Santo Domingo (8:00 PM).'
+                'Fiesta de Navidad UTPL en Santo Domingo (20:00).'
             );
 
             document.getElementById('link-google-cal').href =
@@ -612,20 +612,20 @@
                 'VERSION:2.0',
                 'CALSCALE:GREGORIAN',
                 'METHOD:PUBLISH',
-                'PRODID:-//UTPL Zona 4//Fiesta de Navidad//ES',
+                'PRODID:-//UTPL//Fiesta de Navidad//ES',
                 'BEGIN:VEVENT',
-                'UID:utpl-zona4-navidad-2026@utpl.edu.ec',
+                'UID:utpl-navidad-2026@utpl.edu.ec',
                 'DTSTAMP:20261124T160000Z',
                 'DTSTART:20261212T010000Z',
                 'DTEND:20261212T050000Z',
-                'SUMMARY:Save the Date: Fiesta de Navidad UTPL Zona 4',
+                'SUMMARY:Save the Date: Fiesta de Navidad UTPL',
                 'LOCATION:Santo Domingo, Ecuador',
-                'DESCRIPTION:Fiesta de Navidad UTPL Zona 4 en Santo Domingo (8:00 PM).',
+                'DESCRIPTION:Fiesta de Navidad UTPL en Santo Domingo (20:00).',
                 'STATUS:CONFIRMED',
                 'BEGIN:VALARM',
                 'TRIGGER:-P2D',
                 'ACTION:DISPLAY',
-                'DESCRIPTION:Recordatorio: Fiesta de Navidad UTPL Zona 4 en Santo Domingo (8:00 PM)',
+                'DESCRIPTION:Recordatorio: Fiesta de Navidad UTPL en Santo Domingo (20:00)',
                 'END:VALARM',
                 'END:VEVENT',
                 'END:VCALENDAR'
