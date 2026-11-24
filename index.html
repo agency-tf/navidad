@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UTPL Zona 4 | Save the Date — Fiesta de Navidad</title>
+    <title>UTPL Zona 4 | Algo Mágico Se Acerca — Navidad 2026</title>
 
     <!-- Tipografías de Alta Gala Editorial -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Iconos y Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -21,7 +21,6 @@
                         gala: {
                             sapphire: '#061539',
                             royal: '#0E296B',
-                            cobalt: '#1D4ED8',
                             glacier: '#BAE6FD',
                             porcelain: '#FAF8F5',
                             ivory: '#F2ECE1',
@@ -72,11 +71,11 @@
             background: conic-gradient(
                 from 0deg,
                 transparent 0deg,
-                rgba(233, 201, 130, 0.11) 35deg,
+                rgba(233, 201, 130, 0.12) 35deg,
                 transparent 70deg,
                 rgba(186, 230, 253, 0.12) 130deg,
                 transparent 180deg,
-                rgba(233, 201, 130, 0.11) 240deg,
+                rgba(233, 201, 130, 0.12) 240deg,
                 transparent 300deg
             );
             border-radius: 50%;
@@ -111,10 +110,10 @@
                 0 0 70px rgba(186, 230, 253, 0.18);
         }
 
-        /* Cabecera Zafiro Imperial con Textura Sutil */
+        /* Cabecera Zafiro Imperial */
         .sapphire-crown {
             background:
-                radial-gradient(ellipse at 50% 100%, rgba(233, 201, 130, 0.24) 0%, transparent 65%),
+                radial-gradient(ellipse at 50% 100%, rgba(233, 201, 130, 0.25) 0%, transparent 65%),
                 radial-gradient(circle at 50% 18%, rgba(186, 230, 253, 0.22) 0%, transparent 55%),
                 linear-gradient(160deg, #061539 0%, #0E2A6E 55%, #071942 100%);
         }
@@ -133,7 +132,7 @@
             100% { background-position: -220% center; }
         }
 
-        /* Bloque Escultural de Fecha en Oro Blanco & Zafiro */
+        /* Bloque Escultural de Fecha en Oro & Zafiro */
         .royal-date-card {
             background:
                 radial-gradient(circle at 25% 15%, rgba(255, 255, 255, 0.2) 0%, transparent 55%),
@@ -144,10 +143,9 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.25);
         }
 
-        /* Bloque Escultural de Ciudad en Cristal Perlado */
-        .pearl-city-card {
-            background:
-                linear-gradient(155deg, #FFFFFF 0%, #F4EFE4 100%);
+        /* Bloques en Cristal Perlado */
+        .pearl-card {
+            background: linear-gradient(155deg, #FFFFFF 0%, #F4EFE4 100%);
             border: 1.5px solid rgba(198, 150, 62, 0.55);
             box-shadow:
                 0 20px 40px -14px rgba(11, 23, 54, 0.14),
@@ -182,6 +180,15 @@
         .btn-royal-gala:hover {
             transform: translateY(-2px);
             box-shadow: 0 24px 46px -10px rgba(8, 27, 75, 0.65);
+        }
+
+        /* Pulso suave en sello de misterio */
+        .pulse-glow {
+            animation: softPulse 2.8s ease-in-out infinite;
+        }
+        @keyframes softPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(198, 150, 62, 0.35); }
+            50% { box-shadow: 0 0 0 8px rgba(198, 150, 62, 0); }
         }
 
         /* Animación de Entrada */
@@ -243,49 +250,36 @@
     <!-- =========================================================
          COMPOSICIÓN PRINCIPAL — SAVE THE DATE NAVIDAD UTPL ZONA 4
          ========================================================= -->
-    <main class="relative z-10 min-h-screen w-full flex flex-col items-center justify-center py-8 px-4 sm:px-6">
+    <main class="relative z-10 min-h-screen w-full flex flex-col items-center justify-center py-4 sm:py-6 px-3 sm:px-6">
 
-        <article class="reveal relative w-full max-w-[700px] rounded-[34px] overflow-hidden editorial-suite">
+        <article class="reveal relative w-full max-w-[440px] md:max-w-[780px] rounded-[28px] sm:rounded-[32px] overflow-hidden editorial-suite">
 
             <!-- Marco Interior de Joyería -->
-            <div class="absolute inset-3 sm:inset-4 border border-gala-gold/40 rounded-[26px] pointer-events-none z-30"></div>
+            <div class="absolute inset-2.5 sm:inset-3.5 border border-gala-gold/40 rounded-[22px] sm:rounded-[25px] pointer-events-none z-30"></div>
 
             <!-- =====================================================
                  SECCIÓN SUPERIOR: CIELO ZAFIRO Y CORONA NAVIDEÑA
                  ===================================================== -->
-            <header class="sapphire-crown relative pt-11 pb-14 px-6 sm:px-12 text-center text-white overflow-hidden">
+            <header class="sapphire-crown relative pt-6 pb-9 md:pt-7 md:pb-10 px-5 sm:px-10 text-center text-white overflow-hidden">
 
                 <!-- Estrellas Decorativas Sutiles -->
                 <div class="absolute inset-0 opacity-45 pointer-events-none" style="background-image: radial-gradient(#FFF7DF 1px, transparent 1px), radial-gradient(#BAE6FD 1px, transparent 1px); background-size: 46px 46px; background-position: 0 0, 23px 23px;"></div>
 
-                <!-- Distintivo Institucional Superior -->
-                <div class="reveal d-1 relative z-10 inline-flex items-center gap-3 px-5 py-1.5 rounded-full bg-white/[0.08] border border-gala-goldBright/45 backdrop-blur-md mb-6">
-                    <span class="w-1.5 h-1.5 rounded-full bg-gala-goldBright"></span>
-                    <span class="text-[11px] font-bold uppercase tracking-[0.38em] text-gala-goldBright">
-                        UTPL • Zona 4
-                    </span>
-                    <span class="w-1.5 h-1.5 rounded-full bg-gala-goldBright"></span>
-                </div>
-
-                <!-- Corona Navideña de Cristal & Laureles Dorados -->
-                <div class="reveal d-1 relative z-10 flex justify-center mb-4">
-                    <div class="relative w-24 h-24 flex items-center justify-center">
-                        <div class="absolute inset-1 rounded-full bg-gala-goldBright/20 blur-xl"></div>
-                        <svg class="w-24 h-24 drop-shadow-[0_6px_18px_rgba(233,201,130,0.45)]" viewBox="0 0 120 120" fill="none">
-                            <!-- Aro exterior e interior -->
+                <!-- Fila Superior Compacta: Distintivo + Corona en Laptop, Apilado Compacto en Móvil -->
+                <div class="reveal d-1 relative z-10 flex flex-col md:flex-row items-center justify-center gap-2.5 md:gap-4 mb-3">
+                    <!-- Corona Navideña Compacta -->
+                    <div class="relative w-14 h-14 md:w-16 md:h-16 flex items-center justify-center shrink-0">
+                        <div class="absolute inset-1 rounded-full bg-gala-goldBright/20 blur-lg"></div>
+                        <svg class="w-14 h-14 md:w-16 md:h-16 drop-shadow-[0_6px_14px_rgba(233,201,130,0.45)]" viewBox="0 0 120 120" fill="none">
                             <circle cx="60" cy="62" r="42" stroke="url(#wreathGold)" stroke-width="1.5" stroke-dasharray="3 3"/>
                             <circle cx="60" cy="62" r="34" stroke="url(#wreathGold)" stroke-width="1"/>
-                            <!-- Hojas de laurel izquierda -->
                             <path d="M24 72C18 62 18 48 26 38C28 47 26 56 24 72Z" fill="url(#wreathGold)"/>
                             <path d="M32 88C22 80 18 68 21 56C26 65 28 74 32 88Z" fill="url(#wreathGold)" opacity="0.85"/>
                             <path d="M46 99C34 95 26 86 25 75C32 82 38 89 46 99Z" fill="url(#wreathGold)" opacity="0.7"/>
-                            <!-- Hojas de laurel derecha -->
                             <path d="M96 72C102 62 102 48 94 38C92 47 94 56 96 72Z" fill="url(#wreathGold)"/>
                             <path d="M88 88C98 80 102 68 99 56C94 65 92 74 88 88Z" fill="url(#wreathGold)" opacity="0.85"/>
                             <path d="M74 99C86 95 94 86 95 75C88 82 82 89 74 99Z" fill="url(#wreathGold)" opacity="0.7"/>
-                            <!-- Estrella Polar Superior -->
                             <path d="M60 6L63.2 18.8L76 22L63.2 25.2L60 38L56.8 25.2L44 22L56.8 18.8L60 6Z" fill="#FFFDF7"/>
-                            <!-- Copo Central de Cristal -->
                             <g stroke="#BAE6FD" stroke-width="1.6" stroke-linecap="round">
                                 <line x1="60" y1="45" x2="60" y2="79"/>
                                 <line x1="45.3" y1="53.5" x2="74.7" y2="70.5"/>
@@ -301,118 +295,130 @@
                             </defs>
                         </svg>
                     </div>
+
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1 rounded-full bg-white/[0.08] border border-gala-goldBright/45 backdrop-blur-md">
+                        <span class="w-1.5 h-1.5 rounded-full bg-gala-goldBright"></span>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.34em] text-gala-goldBright">
+                            UTPL • Zona 4
+                        </span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-gala-goldBright"></span>
+                    </div>
                 </div>
 
                 <!-- Títulos Principales -->
                 <div class="reveal d-2 relative z-10">
-                    <p class="text-[11px] font-bold uppercase tracking-[0.46em] text-gala-glacier mb-2">
+                    <p class="text-[10px] font-bold uppercase tracking-[0.38em] text-gala-glacier mb-1">
                         Save the Date • Próximamente
                     </p>
-                    <h1 class="font-serif text-3xl sm:text-[46px] font-extrabold tracking-[0.08em] leading-[1.12] gold-foil-text">
+                    <h1 class="font-serif text-[26px] sm:text-[38px] md:text-[42px] font-extrabold tracking-[0.07em] leading-[1.1] gold-foil-text">
                         FIESTA DE NAVIDAD
                     </h1>
-                    <p class="font-script text-3xl sm:text-[40px] text-sky-100/95 mt-1">
+                    <p class="font-script text-[26px] sm:text-[34px] text-sky-100/95 mt-0.5 leading-tight">
                         Una noche mágica por celebrar
                     </p>
                 </div>
 
                 <!-- Curva Panorámica Inferior de Transición -->
-                <svg class="absolute bottom-0 left-0 w-full h-8 sm:h-10 text-[#FAF8F5]" viewBox="0 0 700 40" preserveAspectRatio="none">
+                <svg class="absolute bottom-0 left-0 w-full h-5 sm:h-7 text-[#FAF8F5]" viewBox="0 0 700 40" preserveAspectRatio="none">
                     <path d="M0 40 C 210 0, 490 0, 700 40 L 700 40 L 0 40 Z" fill="currentColor"/>
                 </svg>
             </header>
 
             <!-- =====================================================
-                 SECCIÓN INFERIOR: PORCELANA PERLADA, FECHA Y SEDE
+                 SECCIÓN INFERIOR: PORCELANA PERLADA, FECHA, HORA Y SEDE
                  ===================================================== -->
-            <div class="relative z-10 px-6 pt-3 pb-11 sm:px-12 sm:pb-12 text-center">
+            <div class="relative z-10 px-5 pt-2 pb-7 sm:px-9 sm:pb-8 text-center">
 
-                <p class="reveal d-2 font-editorial italic text-xl sm:text-[26px] text-slate-700 leading-relaxed max-w-lg mx-auto mb-8">
+                <p class="reveal d-2 font-editorial italic text-[17px] sm:text-[21px] text-slate-700 leading-snug max-w-xl mx-auto mb-5">
                     "Reserva esta fecha especial en tu agenda para compartir juntos la alegría y la magia de la Navidad."
                 </p>
 
-                <!-- TARJETAS ESCULTURALES: FECHA ZAFIRO & SEDE PERLA -->
-                <div class="reveal d-3 grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-5 items-stretch mb-9">
+                <!-- TARJETAS ESCULTURALES HORIZONTALES (3 COLUMNAS EN LAPTOP, COMPACTAS EN IPHONE) -->
+                <div class="reveal d-3 grid grid-cols-3 gap-2.5 sm:gap-4 items-stretch mb-5">
 
-                    <!-- Fecha: Viernes 11 de Diciembre (Azul Zafiro & Oro) -->
-                    <div class="sm:col-span-6 royal-date-card rounded-[24px] p-6 sm:p-7 flex flex-col items-center justify-center text-white relative overflow-hidden">
-                        <div class="w-8 h-8 rounded-full bg-white/10 border border-gala-goldBright/45 flex items-center justify-center text-gala-goldBright mb-2.5">
-                            <i class="fa-regular fa-calendar text-xs"></i>
-                        </div>
-                        <span class="text-[11px] font-bold uppercase tracking-[0.36em] text-gala-glacier">
+                    <!-- Fecha: Viernes 11 de Diciembre -->
+                    <div class="royal-date-card rounded-[18px] sm:rounded-[22px] py-3.5 px-2 sm:p-4 flex flex-col items-center justify-center text-white relative overflow-hidden">
+                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] sm:tracking-[0.3em] text-gala-glacier">
                             Viernes
                         </span>
-                        <span class="font-serif text-5xl sm:text-[60px] font-extrabold leading-none my-1.5 gold-foil-text">
+                        <span class="font-serif text-3xl sm:text-[44px] font-extrabold leading-none my-1 gold-foil-text">
                             11
                         </span>
-                        <span class="text-xs font-bold uppercase tracking-[0.3em] text-amber-100">
-                            de Diciembre
+                        <span class="text-[9px] sm:text-[11px] font-bold uppercase tracking-[0.16em] sm:tracking-[0.24em] text-amber-100">
+                            Diciembre
                         </span>
                     </div>
 
-                    <!-- Ciudad: Santo Domingo (Porcelana & Oro) -->
-                    <div class="sm:col-span-6 pearl-city-card rounded-[24px] p-6 sm:p-7 flex flex-col items-center justify-center relative overflow-hidden">
-                        <div class="w-9 h-9 rounded-full bg-gala-sapphire text-gala-goldBright flex items-center justify-center shadow-md mb-3">
-                            <i class="fa-solid fa-location-dot text-sm"></i>
+                    <!-- Hora: 8:00 PM -->
+                    <div class="pearl-city-card rounded-[18px] sm:rounded-[22px] py-3.5 px-2 sm:p-4 flex flex-col items-center justify-center relative overflow-hidden">
+                        <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gala-sapphire/10 text-gala-sapphire flex items-center justify-center mb-1">
+                            <i class="fa-regular fa-clock text-[11px] sm:text-xs"></i>
                         </div>
-                        <span class="text-[10px] font-bold uppercase tracking-[0.32em] text-slate-400 mb-1">
-                            Ciudad Sede
+                        <span class="font-serif text-xl sm:text-[28px] font-extrabold text-gala-sapphire leading-none my-0.5">
+                            8:00
                         </span>
-                        <span class="font-serif text-2xl sm:text-[26px] font-extrabold text-gala-sapphire tracking-wide leading-tight">
+                        <span class="px-2.5 py-0.5 rounded-full bg-gala-sapphire text-gala-goldBright text-[9px] font-extrabold uppercase tracking-[0.22em] mt-1">
+                            PM
+                        </span>
+                    </div>
+
+                    <!-- Ciudad: Santo Domingo -->
+                    <div class="pearl-city-card rounded-[18px] sm:rounded-[22px] py-3.5 px-2 sm:p-4 flex flex-col items-center justify-center relative overflow-hidden">
+                        <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gala-sapphire text-gala-goldBright flex items-center justify-center shadow-sm mb-1">
+                            <i class="fa-solid fa-location-dot text-[10px] sm:text-xs"></i>
+                        </div>
+                        <span class="font-serif text-[12px] sm:text-[17px] font-extrabold text-gala-sapphire tracking-wide leading-tight">
                             SANTO DOMINGO
                         </span>
-                        <div class="w-12 h-[1.5px] bg-gala-gold/60 my-2.5"></div>
-                        <span class="text-[11px] font-bold uppercase tracking-[0.22em] text-gala-goldDeep">
-                            Locación por revelar
+                        <span class="text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-gala-goldDeep mt-1">
+                            Lugar por revelar
                         </span>
                     </div>
 
                 </div>
 
-                <!-- Cuenta Regresiva -->
-                <div class="reveal d-3 mb-9">
-                    <div class="grid grid-cols-4 gap-2.5 sm:gap-4 max-w-md mx-auto">
-                        <div class="rounded-2xl bg-white border border-gala-gold/35 py-3.5 px-1 shadow-sm">
-                            <span id="cd-days" class="block font-serif text-xl sm:text-2xl font-extrabold text-gala-sapphire">--</span>
-                            <span class="text-[9px] font-bold uppercase tracking-[0.22em] text-slate-400">Días</span>
+                <!-- Cuenta Regresiva + Botón en Fila en Laptop / Apilados Compactos en iPhone -->
+                <div class="reveal d-3 flex flex-col md:flex-row items-center justify-between gap-4 bg-white/75 border border-gala-gold/35 rounded-2xl p-3.5 sm:px-5 sm:py-4 mb-5">
+                    <div class="grid grid-cols-4 gap-2 w-full md:w-auto md:min-w-[290px]">
+                        <div class="rounded-xl bg-white border border-gala-gold/30 py-2 px-1 shadow-xs">
+                            <span id="cd-days" class="block font-serif text-base sm:text-lg font-extrabold text-gala-sapphire leading-tight">--</span>
+                            <span class="text-[8px] font-bold uppercase tracking-[0.18em] text-slate-400">Días</span>
                         </div>
-                        <div class="rounded-2xl bg-white border border-gala-gold/35 py-3.5 px-1 shadow-sm">
-                            <span id="cd-hours" class="block font-serif text-xl sm:text-2xl font-extrabold text-gala-sapphire">--</span>
-                            <span class="text-[9px] font-bold uppercase tracking-[0.22em] text-slate-400">Horas</span>
+                        <div class="rounded-xl bg-white border border-gala-gold/30 py-2 px-1 shadow-xs">
+                            <span id="cd-hours" class="block font-serif text-base sm:text-lg font-extrabold text-gala-sapphire leading-tight">--</span>
+                            <span class="text-[8px] font-bold uppercase tracking-[0.18em] text-slate-400">Horas</span>
                         </div>
-                        <div class="rounded-2xl bg-white border border-gala-gold/35 py-3.5 px-1 shadow-sm">
-                            <span id="cd-mins" class="block font-serif text-xl sm:text-2xl font-extrabold text-gala-sapphire">--</span>
-                            <span class="text-[9px] font-bold uppercase tracking-[0.22em] text-slate-400">Min</span>
+                        <div class="rounded-xl bg-white border border-gala-gold/30 py-2 px-1 shadow-xs">
+                            <span id="cd-mins" class="block font-serif text-base sm:text-lg font-extrabold text-gala-sapphire leading-tight">--</span>
+                            <span class="text-[8px] font-bold uppercase tracking-[0.18em] text-slate-400">Min</span>
                         </div>
-                        <div class="rounded-2xl bg-white border border-gala-gold/35 py-3.5 px-1 shadow-sm">
-                            <span id="cd-secs" class="block font-serif text-xl sm:text-2xl font-extrabold text-gala-sapphire">--</span>
-                            <span class="text-[9px] font-bold uppercase tracking-[0.22em] text-slate-400">Seg</span>
+                        <div class="rounded-xl bg-white border border-gala-gold/30 py-2 px-1 shadow-xs">
+                            <span id="cd-secs" class="block font-serif text-base sm:text-lg font-extrabold text-gala-sapphire leading-tight">--</span>
+                            <span class="text-[8px] font-bold uppercase tracking-[0.18em] text-slate-400">Seg</span>
                         </div>
                     </div>
-                </div>
 
-                <!-- Botón Protagonista -->
-                <div class="reveal d-4 max-w-xs mx-auto">
-                    <button onclick="abrirModalCalendario()" class="btn-royal-gala w-full py-4 px-6 rounded-2xl font-bold text-xs uppercase tracking-[0.24em] flex items-center justify-center gap-3 cursor-pointer">
-                        <i class="fa-regular fa-calendar-plus text-base text-gala-goldBright"></i>
+                    <button onclick="abrirModalCalendario()" class="btn-royal-gala w-full md:w-auto md:flex-1 py-3.5 px-5 rounded-xl font-bold text-[11px] uppercase tracking-[0.2em] flex items-center justify-center gap-2.5 cursor-pointer">
+                        <i class="fa-regular fa-calendar-plus text-sm text-gala-goldBright"></i>
                         <span>Agendar Fecha</span>
                     </button>
                 </div>
 
-                <!-- Aviso de Próxima Invitación -->
-                <div class="reveal d-4 mt-7 inline-flex items-center gap-2.5 text-xs font-semibold text-gala-sapphire bg-white px-5 py-2.5 rounded-full border border-gala-gold/40 shadow-sm">
-                    <i class="fa-solid fa-sparkles text-gala-gold"></i>
-                    <span>Muy pronto recibirás la invitación oficial</span>
-                </div>
+                <!-- Pie Compacto: Aviso + Firma -->
+                <footer class="reveal d-4 pt-3.5 border-t border-gala-gold/30 flex flex-col md:flex-row items-center justify-between gap-2.5">
+                    <div class="inline-flex items-center gap-2 text-[11px] font-semibold text-gala-sapphire bg-white px-4 py-1.5 rounded-full border border-gala-gold/40 shadow-xs">
+                        <i class="fa-solid fa-sparkles text-gala-gold"></i>
+                        <span>Muy pronto recibirás la invitación oficial</span>
+                    </div>
 
-                <!-- Firma -->
-                <footer class="reveal d-4 mt-9 pt-6 border-t border-gala-gold/30">
-                    <p class="font-editorial italic font-bold text-2xl sm:text-[28px] text-gala-sapphire">
-                        Karina Rojas
-                    </p>
-                    <p class="text-[10px] font-bold uppercase tracking-[0.34em] text-gala-goldDeep mt-1">
-                        Gerencia Comercial Zona 4
-                    </p>
+                    <div class="text-center md:text-right">
+                        <p class="font-editorial italic font-bold text-xl sm:text-2xl text-gala-sapphire leading-none">
+                            Karina Rojas
+                        </p>
+                        <p class="text-[9px] font-bold uppercase tracking-[0.28em] text-gala-goldDeep mt-0.5">
+                            Gerencia Comercial Zona 4
+                        </p>
+                    </div>
                 </footer>
 
             </div>
@@ -431,7 +437,7 @@
 
             <div class="text-center mb-6">
                 <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-gala-goldDeep">
-                    Viernes 11 de Diciembre • Santo Domingo
+                    Viernes 11 de Diciembre • 8:00 PM • Santo Domingo
                 </span>
                 <h3 class="font-serif text-xl sm:text-2xl font-bold text-gala-sapphire mt-1.5">
                     Guardar en Calendario
@@ -605,14 +611,14 @@
             const titulo = encodeURIComponent('Save the Date: Fiesta de Navidad UTPL Zona 4');
             const ubicacion = encodeURIComponent('Santo Domingo, Ecuador');
             const detalle = encodeURIComponent(
-                'Fiesta de Navidad UTPL Zona 4 en Santo Domingo. Muy pronto recibirás la invitación oficial con todos los detalles.'
+                'Fiesta de Navidad UTPL Zona 4 en Santo Domingo (8:00 PM). Muy pronto recibirás la invitación oficial con todos los detalles.'
             );
 
             document.getElementById('link-google-cal').href =
-                `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${titulo}&dates=20261211/20261212&details=${detalle}&location=${ubicacion}`;
+                `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${titulo}&dates=20261212T010000Z/20261212T050000Z&details=${detalle}&location=${ubicacion}`;
 
             document.getElementById('link-outlook-web').href =
-                `https://outlook.office.com/calendar/0/deeplink/compose?subject=${titulo}&startdt=2026-12-11T00:00:00&enddt=2026-12-12T00:00:00&allday=true&body=${detalle}&location=${ubicacion}`;
+                `https://outlook.office.com/calendar/0/deeplink/compose?subject=${titulo}&startdt=2026-12-11T20:00:00&enddt=2026-12-11T23:59:00&body=${detalle}&location=${ubicacion}`;
         }
 
         // 3. ARCHIVO UNIVERSAL .ICS
@@ -626,16 +632,16 @@
                 'BEGIN:VEVENT',
                 'UID:utpl-zona4-navidad-2026@utpl.edu.ec',
                 'DTSTAMP:20261124T160000Z',
-                'DTSTART;VALUE=DATE:20261211',
-                'DTEND;VALUE=DATE:20261212',
+                'DTSTART:20261212T010000Z',
+                'DTEND:20261212T050000Z',
                 'SUMMARY:Save the Date: Fiesta de Navidad UTPL Zona 4',
                 'LOCATION:Santo Domingo, Ecuador',
-                'DESCRIPTION:Fiesta de Navidad UTPL Zona 4 en Santo Domingo. Muy pronto recibirás la invitación oficial con todos los detalles.',
+                'DESCRIPTION:Fiesta de Navidad UTPL Zona 4 en Santo Domingo (8:00 PM). Muy pronto recibirás la invitación oficial con todos los detalles.',
                 'STATUS:CONFIRMED',
                 'BEGIN:VALARM',
                 'TRIGGER:-P2D',
                 'ACTION:DISPLAY',
-                'DESCRIPTION:Recordatorio: Fiesta de Navidad UTPL Zona 4 en Santo Domingo',
+                'DESCRIPTION:Recordatorio: Fiesta de Navidad UTPL Zona 4 en Santo Domingo (8:00 PM)',
                 'END:VALARM',
                 'END:VEVENT',
                 'END:VCALENDAR'
@@ -672,7 +678,7 @@
 
         // 4. CUENTA REGRESIVA AL VIERNES 11 DE DICIEMBRE 2026
         function iniciarCuentaRegresiva() {
-            const meta = new Date('2026-12-11T18:00:00-05:00').getTime();
+            const meta = new Date('2026-12-11T20:00:00-05:00').getTime();
 
             function tick() {
                 const diff = meta - Date.now();
