@@ -144,7 +144,7 @@
         }
 
         /* Bloques en Cristal Perlado */
-        .pearl-card {
+        .pearl-city-card {
             background: linear-gradient(155deg, #FFFFFF 0%, #F4EFE4 100%);
             border: 1.5px solid rgba(198, 150, 62, 0.55);
             box-shadow:
@@ -180,15 +180,6 @@
         .btn-royal-gala:hover {
             transform: translateY(-2px);
             box-shadow: 0 24px 46px -10px rgba(8, 27, 75, 0.65);
-        }
-
-        /* Pulso suave en sello de misterio */
-        .pulse-glow {
-            animation: softPulse 2.8s ease-in-out infinite;
-        }
-        @keyframes softPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(198, 150, 62, 0.35); }
-            50% { box-shadow: 0 0 0 8px rgba(198, 150, 62, 0); }
         }
 
         /* Animación de Entrada */
@@ -404,21 +395,14 @@
                     </button>
                 </div>
 
-                <!-- Pie Compacto: Aviso + Firma -->
-                <footer class="reveal d-4 pt-3.5 border-t border-gala-gold/30 flex flex-col md:flex-row items-center justify-between gap-2.5">
-                    <div class="inline-flex items-center gap-2 text-[11px] font-semibold text-gala-sapphire bg-white px-4 py-1.5 rounded-full border border-gala-gold/40 shadow-xs">
-                        <i class="fa-solid fa-sparkles text-gala-gold"></i>
-                        <span>Muy pronto recibirás la invitación oficial</span>
-                    </div>
-
-                    <div class="text-center md:text-right">
-                        <p class="font-editorial italic font-bold text-xl sm:text-2xl text-gala-sapphire leading-none">
-                            Karina Rojas
-                        </p>
-                        <p class="text-[9px] font-bold uppercase tracking-[0.28em] text-gala-goldDeep mt-0.5">
-                            Gerencia Comercial Zona 4
-                        </p>
-                    </div>
+                <!-- Firma -->
+                <footer class="reveal d-4 pt-3.5 border-t border-gala-gold/30 text-center md:text-right">
+                    <p class="font-editorial italic font-bold text-xl sm:text-2xl text-gala-sapphire leading-none">
+                        Karina Rojas
+                    </p>
+                    <p class="text-[9px] font-bold uppercase tracking-[0.28em] text-gala-goldDeep mt-0.5">
+                        Gerencia Comercial Zona 4
+                    </p>
                 </footer>
 
             </div>
@@ -611,7 +595,7 @@
             const titulo = encodeURIComponent('Save the Date: Fiesta de Navidad UTPL Zona 4');
             const ubicacion = encodeURIComponent('Santo Domingo, Ecuador');
             const detalle = encodeURIComponent(
-                'Fiesta de Navidad UTPL Zona 4 en Santo Domingo (8:00 PM). Muy pronto recibirás la invitación oficial con todos los detalles.'
+                'Fiesta de Navidad UTPL Zona 4 en Santo Domingo (8:00 PM).'
             );
 
             document.getElementById('link-google-cal').href =
@@ -636,7 +620,7 @@
                 'DTEND:20261212T050000Z',
                 'SUMMARY:Save the Date: Fiesta de Navidad UTPL Zona 4',
                 'LOCATION:Santo Domingo, Ecuador',
-                'DESCRIPTION:Fiesta de Navidad UTPL Zona 4 en Santo Domingo (8:00 PM). Muy pronto recibirás la invitación oficial con todos los detalles.',
+                'DESCRIPTION:Fiesta de Navidad UTPL Zona 4 en Santo Domingo (8:00 PM).',
                 'STATUS:CONFIRMED',
                 'BEGIN:VALARM',
                 'TRIGGER:-P2D',
