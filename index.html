@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UTPL Zona 4 | Algo Mágico Se Acerca — Navidad 2026</title>
+    <title>UTPL | Fiesta de Navidad & Amigo Secreto 2026</title>
 
     <!-- Tipografías de Alta Gala Editorial -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -152,6 +152,15 @@
                 inset 0 1px 0 #FFFFFF;
         }
 
+        /* Tarjeta de Amigo Secreto */
+        .secret-santa-box {
+            background:
+                radial-gradient(circle at 100% 0%, rgba(233, 201, 130, 0.2) 0%, transparent 55%),
+                linear-gradient(145deg, #071944 0%, #0E2C75 60%, #061336 100%);
+            border: 1.5px solid #D7B162;
+            box-shadow: 0 24px 48px -14px rgba(6, 21, 57, 0.45);
+        }
+
         /* Botón Joya Zafiro & Oro */
         .btn-royal-gala {
             position: relative;
@@ -180,6 +189,27 @@
         .btn-royal-gala:hover {
             transform: translateY(-2px);
             box-shadow: 0 24px 46px -10px rgba(8, 27, 75, 0.65);
+        }
+
+        /* Botón Dorado para Revelar Amigo Secreto */
+        .btn-gold-reveal {
+            background: linear-gradient(135deg, #E9C982 0%, #C6963E 55%, #A67926 100%);
+            color: #061539;
+            box-shadow: 0 14px 30px -8px rgba(233, 201, 130, 0.45);
+            transition: transform 0.25s ease, filter 0.25s ease;
+        }
+        .btn-gold-reveal:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.06);
+        }
+
+        /* Efecto de Revelación */
+        @keyframes giftRevealPop {
+            0% { opacity: 0; transform: scale(0.9) translateY(10px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .gift-reveal-anim {
+            animation: giftRevealPop 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
         /* Animación de Entrada */
@@ -239,11 +269,11 @@
     <canvas id="snow-canvas" aria-hidden="true"></canvas>
 
     <!-- =========================================================
-         COMPOSICIÓN PRINCIPAL — SAVE THE DATE NAVIDAD UTPL ZONA 4
+         COMPOSICIÓN PRINCIPAL — FIESTA DE NAVIDAD & AMIGO SECRETO
          ========================================================= -->
-    <main class="relative z-10 min-h-screen w-full flex flex-col items-center justify-center py-4 sm:py-6 px-3 sm:px-6">
+    <main class="relative z-10 min-h-screen w-full flex flex-col items-center justify-center py-5 sm:py-8 px-3 sm:px-6">
 
-        <article class="reveal relative w-full max-w-[440px] md:max-w-[780px] rounded-[28px] sm:rounded-[32px] overflow-hidden editorial-suite">
+        <article class="reveal relative w-full max-w-[460px] md:max-w-[780px] rounded-[28px] sm:rounded-[32px] overflow-hidden editorial-suite">
 
             <!-- Marco Interior de Joyería -->
             <div class="absolute inset-2.5 sm:inset-3.5 border border-gala-gold/40 rounded-[22px] sm:rounded-[25px] pointer-events-none z-30"></div>
@@ -256,7 +286,7 @@
                 <!-- Estrellas Decorativas Sutiles -->
                 <div class="absolute inset-0 opacity-45 pointer-events-none" style="background-image: radial-gradient(#FFF7DF 1px, transparent 1px), radial-gradient(#BAE6FD 1px, transparent 1px); background-size: 46px 46px; background-position: 0 0, 23px 23px;"></div>
 
-                <!-- Fila Superior Compacta: Distintivo + Corona en Laptop, Apilado Compacto en Móvil -->
+                <!-- Fila Superior Compacta: Distintivo + Corona -->
                 <div class="reveal d-1 relative z-10 flex flex-col md:flex-row items-center justify-center gap-2.5 md:gap-4 mb-3">
                     <!-- Corona Navideña Compacta -->
                     <div class="relative w-14 h-14 md:w-16 md:h-16 flex items-center justify-center shrink-0">
@@ -289,7 +319,7 @@
 
                     <div class="inline-flex items-center gap-2.5 px-4 py-1 rounded-full bg-white/[0.08] border border-gala-goldBright/45 backdrop-blur-md">
                         <span class="w-1.5 h-1.5 rounded-full bg-gala-goldBright"></span>
-                        <span class="text-[10px] font-bold uppercase tracking-[0.34em] text-gala-goldBright">
+                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] sm:tracking-[0.28em] text-gala-goldBright">
                             Universidad Técnica Particular de Loja
                         </span>
                         <span class="w-1.5 h-1.5 rounded-full bg-gala-goldBright"></span>
@@ -299,7 +329,7 @@
                 <!-- Títulos Principales -->
                 <div class="reveal d-2 relative z-10">
                     <p class="text-[10px] font-bold uppercase tracking-[0.38em] text-gala-glacier mb-1">
-                        Save the Date • Próximamente
+                        Celebración Navideña
                     </p>
                     <h1 class="font-serif text-[26px] sm:text-[38px] md:text-[42px] font-extrabold tracking-[0.07em] leading-[1.1] gold-foil-text">
                         FIESTA DE NAVIDAD
@@ -316,7 +346,7 @@
             </header>
 
             <!-- =====================================================
-                 SECCIÓN INFERIOR: PORCELANA PERLADA, FECHA, HORA Y SEDE
+                 SECCIÓN INFERIOR: FECHA, HORA, LUGAR Y AMIGO SECRETO
                  ===================================================== -->
             <div class="relative z-10 px-5 pt-2 pb-7 sm:px-9 sm:pb-8 text-center">
 
@@ -324,7 +354,7 @@
                     "Reserva esta fecha especial en tu agenda para compartir juntos la alegría y la magia de la Navidad."
                 </p>
 
-                <!-- TARJETAS ESCULTURALES HORIZONTALES (3 COLUMNAS EN LAPTOP, COMPACTAS EN IPHONE) -->
+                <!-- TARJETAS ESCULTURALES HORIZONTALES -->
                 <div class="reveal d-3 grid grid-cols-3 gap-2.5 sm:gap-4 items-stretch mb-5">
 
                     <!-- Fecha: Viernes 11 de Diciembre -->
@@ -362,14 +392,14 @@
                             SANTO DOMINGO
                         </span>
                         <span class="text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-gala-goldDeep mt-1">
-                            Lugar por revelar
+                            Sede de Gala
                         </span>
                     </div>
 
                 </div>
 
-                <!-- Cuenta Regresiva + Botón en Fila en Laptop / Apilados Compactos en iPhone -->
-                <div class="reveal d-3 flex flex-col md:flex-row items-center justify-between gap-4 bg-white/75 border border-gala-gold/35 rounded-2xl p-3.5 sm:px-5 sm:py-4 mb-5">
+                <!-- Cuenta Regresiva + Botón Agendar Fecha -->
+                <div class="reveal d-3 flex flex-col md:flex-row items-center justify-between gap-4 bg-white/75 border border-gala-gold/35 rounded-2xl p-3.5 sm:px-5 sm:py-4 mb-6">
                     <div class="grid grid-cols-4 gap-2 w-full md:w-auto md:min-w-[290px]">
                         <div class="rounded-xl bg-white border border-gala-gold/30 py-2 px-1 shadow-xs">
                             <span id="cd-days" class="block font-serif text-base sm:text-lg font-extrabold text-gala-sapphire leading-tight">--</span>
@@ -395,11 +425,115 @@
                     </button>
                 </div>
 
+                <!-- =====================================================
+                     SECCIÓN INTERACTIVA: GENERADOR DE AMIGO SECRETO
+                     ===================================================== -->
+                <section aria-labelledby="titulo-amigo-secreto" class="reveal d-4 secret-santa-box rounded-[24px] p-5 sm:p-7 text-white text-center relative overflow-hidden mb-6">
+
+                    <!-- Encabezado de Amigo Secreto -->
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-gala-goldBright/40 mb-2.5">
+                        <i class="fa-solid fa-gift text-gala-goldBright text-xs"></i>
+                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.3em] text-gala-goldBright">
+                            Intercambio Navideño
+                        </span>
+                    </div>
+
+                    <h2 id="titulo-amigo-secreto" class="font-serif text-xl sm:text-2xl font-extrabold tracking-[0.06em] gold-foil-text">
+                        AMIGO SECRETO 2026
+                    </h2>
+
+                    <p class="font-editorial italic text-base sm:text-lg text-sky-100/90 max-w-md mx-auto mt-1 mb-5">
+                        Ingresa tu código personal secreto para descubrir a quién sorprenderás esta Navidad.
+                    </p>
+
+                    <!-- Estado 1: Formulario de Código -->
+                    <div id="vista-codigo" class="max-w-md mx-auto">
+                        <div class="flex flex-col sm:flex-row gap-2.5">
+                            <div class="relative flex-1">
+                                <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-gala-goldBright/80">
+                                    <i class="fa-solid fa-key text-xs"></i>
+                                </span>
+                                <input
+                                    id="input-codigo"
+                                    type="text"
+                                    maxlength="12"
+                                    placeholder="Ej. NAV-4821"
+                                    autocomplete="off"
+                                    onkeydown="if(event.key==='Enter') revelarAmigoSecreto()"
+                                    class="w-full pl-9 pr-4 py-3.5 rounded-xl bg-white/10 border border-gala-goldBright/50 text-white placeholder-sky-200/50 text-center sm:text-left font-bold uppercase tracking-[0.22em] text-sm focus:outline-none focus:border-gala-goldBright focus:bg-white/15 transition"
+                                >
+                            </div>
+                            <button onclick="revelarAmigoSecreto()" class="btn-gold-reveal py-3.5 px-6 rounded-xl font-extrabold text-[11px] uppercase tracking-[0.2em] flex items-center justify-center gap-2 shrink-0 cursor-pointer">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                <span>Descubrir</span>
+                            </button>
+                        </div>
+
+                        <p id="error-codigo" class="hidden text-xs font-semibold text-amber-300 mt-2.5">
+                            <i class="fa-solid fa-circle-exclamation mr-1"></i> Código no reconocido. Verifica tu clave personal e inténtalo de nuevo.
+                        </p>
+                    </div>
+
+                    <!-- Estado 1.5: Simulación de Sorteo en Vivo -->
+                    <div id="vista-sorteando" class="hidden max-w-md mx-auto">
+                        <div class="rounded-2xl bg-white/[0.08] border border-gala-goldBright/60 p-6 backdrop-blur-md">
+                            <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-gala-goldBright/20 border border-gala-goldBright flex items-center justify-center text-gala-goldBright">
+                                <i class="fa-solid fa-shuffle fa-spin text-lg"></i>
+                            </div>
+                            <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-gala-goldBright mb-1">
+                                Generando Amigo Secreto...
+                            </p>
+                            <p class="font-editorial italic text-base text-sky-100/85 mb-3">
+                                Mezclando nombres en la tómbola navideña
+                            </p>
+                            <div class="py-3 px-4 rounded-xl bg-gala-sapphire/90 border border-gala-goldBright/50 shadow-inner">
+                                <span id="ruleta-nombre" class="font-serif text-base sm:text-lg font-bold tracking-wider text-amber-100 block">
+                                    SORTEANDO...
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Estado 2: Resultado Revelado -->
+                    <div id="vista-resultado" class="hidden gift-reveal-anim max-w-md mx-auto">
+                        <div class="rounded-2xl bg-white/[0.08] border border-gala-goldBright/50 p-5 backdrop-blur-md">
+                            <p class="text-[10px] font-bold uppercase tracking-[0.28em] text-gala-glacier mb-1">
+                                Hola, <span id="res-participante" class="text-white"></span>
+                            </p>
+                            <p class="font-editorial italic text-lg text-amber-100/90 mb-2">
+                                Tu Amigo Secreto esta Navidad es:
+                            </p>
+                            <div class="py-3 px-4 rounded-xl bg-gala-sapphire/80 border border-gala-goldBright shadow-inner my-2">
+                                <span id="res-amigo-secreto" class="font-serif text-lg sm:text-xl font-extrabold tracking-wide gold-foil-text block">
+                                    ---
+                                </span>
+                            </div>
+                            <p class="text-[11px] text-sky-200/80 mt-2">
+                                <i class="fa-solid fa-lock text-gala-goldBright mr-1"></i> Guarda este secreto hasta la noche de gala.
+                            </p>
+                        </div>
+
+                        <button onclick="ocultarResultado()" class="mt-3.5 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.24em] text-gala-goldBright/85 hover:text-gala-goldBright transition cursor-pointer">
+                            <i class="fa-solid fa-eye-slash"></i>
+                            <span>Ocultar pantalla</span>
+                        </button>
+                    </div>
+
+                    <!-- Acceso Discreto al Panel de Códigos para Coordinación -->
+                    <div class="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-center">
+                        <button onclick="abrirModalOrganizador()" class="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-sky-200/65 hover:text-gala-goldBright transition cursor-pointer">
+                            <i class="fa-solid fa-shield-halved text-[10px]"></i>
+                            <span>Panel de Códigos (Coordinación)</span>
+                        </button>
+                    </div>
+
+                </section>
+
                 <!-- Firma Institucional -->
                 <footer class="reveal d-4 pt-3 border-t border-gala-gold/30 flex items-center justify-center md:justify-end">
                     <div class="inline-flex items-center gap-2">
                         <span class="w-1.5 h-1.5 rounded-full bg-gala-gold"></span>
-                        <p class="font-editorial italic font-semibold text-base sm:text-lg tracking-[0.03em] text-gala-sapphire">
+                        <p class="font-serif font-bold text-sm sm:text-base tracking-[0.28em] text-gala-sapphire">
                             UTPL
                         </p>
                     </div>
@@ -408,6 +542,75 @@
             </div>
         </article>
     </main>
+
+    <!-- =========================================================
+         MODAL PANEL ORGANIZADOR (CÓDIGOS DE FUNCIONARIOS)
+         ========================================================= -->
+    <div id="admin-modal" class="modal-backdrop fixed inset-0 z-50 bg-gala-sapphire/85 backdrop-blur-md flex items-center justify-center p-4" onclick="cerrarModalOrganizador()">
+        <div class="modal-card relative w-full max-w-2xl rounded-3xl bg-gala-porcelain border-2 border-gala-gold p-5 sm:p-7 shadow-2xl text-gala-ink max-h-[88vh] flex flex-col" onclick="event.stopPropagation()">
+
+            <button onclick="cerrarModalOrganizador()" aria-label="Cerrar" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-gala-sapphire/10 hover:bg-gala-sapphire/20 flex items-center justify-center text-gala-sapphire transition cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-4 shrink-0">
+                <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-gala-goldDeep">
+                    Coordinación Navidad UTPL • 14 Participantes
+                </span>
+                <h3 class="font-serif text-lg sm:text-xl font-bold text-gala-sapphire mt-1">
+                    Códigos de Acceso — Amigo Secreto
+                </h3>
+            </div>
+
+            <!-- Paso 1: Clave de Coordinación -->
+            <div id="admin-login" class="py-4 text-center max-w-sm mx-auto w-full">
+                <p class="text-xs text-slate-600 mb-3">
+                    Ingresa la clave de coordinación (<span class="font-bold text-gala-sapphire">UTPL2026</span>) para consultar y distribuir los códigos individuales:
+                </p>
+                <div class="flex gap-2">
+                    <input
+                        id="input-admin-pass"
+                        type="password"
+                        placeholder="Clave de coordinación"
+                        onkeydown="if(event.key==='Enter') verificarAdmin()"
+                        class="flex-1 px-4 py-2.5 rounded-xl bg-white border border-gala-gold/50 text-sm font-semibold text-gala-sapphire focus:outline-none focus:border-gala-sapphire"
+                    >
+                    <button onclick="verificarAdmin()" class="px-5 py-2.5 rounded-xl bg-gala-sapphire text-gala-goldBright font-bold text-xs uppercase tracking-wider cursor-pointer">
+                        Entrar
+                    </button>
+                </div>
+                <p id="error-admin" class="hidden text-xs font-semibold text-red-600 mt-2">
+                    Clave incorrecta.
+                </p>
+            </div>
+
+            <!-- Paso 2: Listado de Códigos -->
+            <div id="admin-panel" class="hidden flex-1 flex flex-col min-h-0">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-2 mb-3 shrink-0">
+                    <input
+                        id="buscador-funcionarios"
+                        type="text"
+                        oninput="renderizarTablaCodigos()"
+                        placeholder="Buscar funcionario..."
+                        class="w-full sm:w-64 px-3.5 py-2 rounded-xl bg-white border border-gala-gold/40 text-xs font-medium text-gala-sapphire focus:outline-none"
+                    >
+                    <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+                        <button onclick="reSortearConConfirmacion()" class="px-3.5 py-2 rounded-xl bg-amber-100 hover:bg-amber-200/80 text-gala-goldDeep font-bold text-[10px] uppercase tracking-wider transition cursor-pointer">
+                            <i class="fa-solid fa-shuffle mr-1"></i> Nuevo Sorteo
+                        </button>
+                        <button onclick="copiarTodosLosCodigos()" class="px-3.5 py-2 rounded-xl bg-gala-sapphire text-gala-goldBright font-bold text-[10px] uppercase tracking-wider transition cursor-pointer">
+                            <i class="fa-regular fa-copy mr-1"></i> Copiar Lista
+                        </button>
+                    </div>
+                </div>
+
+                <div class="overflow-y-auto rounded-2xl border border-gala-gold/35 bg-white divide-y divide-slate-100 flex-1" id="lista-codigos-body">
+                    <!-- Generado dinámicamente -->
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <!-- =========================================================
          MODAL SELECTOR UNIVERSAL DE CALENDARIO
@@ -491,7 +694,267 @@
     </div>
 
     <script>
+        // =========================================================
+        // 0. SORTEO ALEATORIO OFICIAL SINCRONIZADO (14 FUNCIONARIOS)
+        // =========================================================
+        const SORTEO_BASE = [
+            { codigo: "NAV-4192", dador: "OREJUELA INTRIAGO NANCY GISELA", receptor: "GAONA SANCHEZ JULIANA" },
+            { codigo: "NAV-7538", dador: "ARRIAGA MUÑOZ LENNY NORAIDA", receptor: "MOREIRA ESCALANTE EFRÉN ARTURO" },
+            { codigo: "NAV-6084", dador: "MOREIRA ESCALANTE EFRÉN ARTURO", receptor: "ROJAS DELGADO KARINA CECIBEL" },
+            { codigo: "NAV-2849", dador: "FEIJOO MOREIRA TITO ELIECER", receptor: "VERA VALDEZ SANTOS NESTOR" },
+            { codigo: "NAV-9165", dador: "EDYN MEZA CÁRDENAS", receptor: "ANDRADE MORA OSCAR ALEXANDER" },
+            { codigo: "NAV-3470", dador: "CASTILLO BERMUDEZ TANIA ELIZABETH", receptor: "ORTONEDA VELASQUEZ MARIA DOLORES" },
+            { codigo: "NAV-8251", dador: "ROJAS DELGADO KARINA CECIBEL", receptor: "MEDRANDA VERA GEOVANNY ALEJANDRO" },
+            { codigo: "NAV-5703", dador: "ANDRADE MORA OSCAR ALEXANDER", receptor: "SAMBRANO ANDRADE TANNYA MARIBEL" },
+            { codigo: "NAV-1926", dador: "SAMBRANO ANDRADE TANNYA MARIBEL", receptor: "CASTILLO BERMUDEZ TANIA ELIZABETH" },
+            { codigo: "NAV-6647", dador: "GAONA SANCHEZ JULIANA", receptor: "ALCIVAR ALVAREZ XIMENA MARIBEL" },
+            { codigo: "NAV-8914", dador: "MEDRANDA VERA GEOVANNY ALEJANDRO", receptor: "ARRIAGA MUÑOZ LENNY NORAIDA" },
+            { codigo: "NAV-4380", dador: "VERA VALDEZ SANTOS NESTOR", receptor: "OREJUELA INTRIAGO NANCY GISELA" },
+            { codigo: "NAV-7025", dador: "ALCIVAR ALVAREZ XIMENA MARIBEL", receptor: "EDYN MEZA CÁRDENAS" },
+            { codigo: "NAV-2598", dador: "ORTONEDA VELASQUEZ MARIA DOLORES", receptor: "FEIJOO MOREIRA TITO ELIECER" }
+        ];
+
+        const STORAGE_KEY = 'utpl_navidad_2026_sorteo_14_v3';
+        let sorteoActual = [...SORTEO_BASE];
+        let intervaloRuleta = null;
+
+        // Cargar sorteo guardado en localStorage si existe
+        function cargarSorteo() {
+            try {
+                const guardado = localStorage.getItem(STORAGE_KEY);
+                if (guardado) {
+                    const parsed = JSON.parse(guardado);
+                    if (Array.isArray(parsed) && parsed.length === SORTEO_BASE.length) {
+                        sorteoActual = parsed;
+                    }
+                }
+            } catch (e) {
+                sorteoActual = [...SORTEO_BASE];
+            }
+        }
+
+        // Generar un ciclo hamiltoniano aleatorio sin auto-asignaciones ni parejas recíprocas
+        function generarNuevoSorteoAleatorio() {
+            const nombres = SORTEO_BASE.map(item => item.dador);
+            let valido = false;
+            let permutacion = [];
+
+            while (!valido) {
+                permutacion = [...nombres];
+                for (let i = permutacion.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [permutacion[i], permutacion[j]] = [permutacion[j], permutacion[i]];
+                }
+
+                // Verificar que formemos un solo ciclo de longitud N (evita tanto auto-regalo como pares mutuos A<->B)
+                valido = true;
+                const visitados = new Set();
+                let actual = 0;
+                for (let step = 0; step < permutacion.length; step++) {
+                    if (visitados.has(actual)) {
+                        valido = false;
+                        break;
+                    }
+                    visitados.add(actual);
+                    const siguienteNombre = permutacion[actual];
+                    actual = nombres.indexOf(siguienteNombre);
+                }
+                if (actual !== 0 || visitados.size !== permutacion.length) {
+                    valido = false;
+                }
+            }
+
+            const codigosUsados = new Set();
+            sorteoActual = nombres.map((dador, idx) => {
+                let nuevoCodigo = '';
+                do {
+                    const num = Math.floor(1000 + Math.random() * 9000);
+                    nuevoCodigo = `NAV-${num}`;
+                } while (codigosUsados.has(nuevoCodigo));
+                codigosUsados.add(nuevoCodigo);
+
+                return {
+                    codigo: nuevoCodigo,
+                    dador: dador,
+                    receptor: permutacion[idx]
+                };
+            });
+
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(sorteoActual));
+            } catch (e) {}
+        }
+
+        // Revelar Amigo Secreto con animación de tómbola en vivo
+        function revelarAmigoSecreto() {
+            const input = document.getElementById('input-codigo');
+            const errorEl = document.getElementById('error-codigo');
+            const vistaCodigo = document.getElementById('vista-codigo');
+            const vistaSorteando = document.getElementById('vista-sorteando');
+            const vistaResultado = document.getElementById('vista-resultado');
+            const ruletaNombre = document.getElementById('ruleta-nombre');
+
+            const codigoIngresado = input.value.trim().toUpperCase().replace(/\s+/g, '');
+            const registro = sorteoActual.find(item => item.codigo.toUpperCase() === codigoIngresado);
+
+            if (!registro) {
+                errorEl.classList.remove('hidden');
+                input.focus();
+                return;
+            }
+
+            errorEl.classList.add('hidden');
+            vistaCodigo.classList.add('hidden');
+            vistaResultado.classList.add('hidden');
+            vistaSorteando.classList.remove('hidden');
+
+            const nombresRuleta = sorteoActual.map(item => item.receptor);
+            let ticks = 0;
+            const maxTicks = 24;
+
+            if (intervaloRuleta) clearInterval(intervaloRuleta);
+
+            intervaloRuleta = setInterval(() => {
+                const aleatorio = nombresRuleta[Math.floor(Math.random() * nombresRuleta.length)];
+                ruletaNombre.textContent = aleatorio;
+                ticks++;
+
+                if (ticks >= maxTicks) {
+                    clearInterval(intervaloRuleta);
+                    intervaloRuleta = null;
+
+                    document.getElementById('res-participante').textContent = registro.dador;
+                    document.getElementById('res-amigo-secreto').textContent = registro.receptor;
+
+                    vistaSorteando.classList.add('hidden');
+                    vistaResultado.classList.remove('hidden');
+                }
+            }, 95);
+        }
+
+        function ocultarResultado() {
+            if (intervaloRuleta) {
+                clearInterval(intervaloRuleta);
+                intervaloRuleta = null;
+            }
+            document.getElementById('input-codigo').value = '';
+            document.getElementById('vista-resultado').classList.add('hidden');
+            document.getElementById('vista-sorteando').classList.add('hidden');
+            document.getElementById('vista-codigo').classList.remove('hidden');
+        }
+
+        // =========================================================
+        // PANEL DE COORDINACIÓN (CÓDIGOS)
+        // =========================================================
+        function abrirModalOrganizador() {
+            document.getElementById('admin-modal').classList.add('active');
+            document.getElementById('input-admin-pass').focus();
+        }
+
+        function cerrarModalOrganizador() {
+            document.getElementById('admin-modal').classList.remove('active');
+        }
+
+        function verificarAdmin() {
+            const passInput = document.getElementById('input-admin-pass');
+            const errorAdmin = document.getElementById('error-admin');
+
+            if (passInput.value.trim().toUpperCase() === 'UTPL2026') {
+                errorAdmin.classList.add('hidden');
+                document.getElementById('admin-login').classList.add('hidden');
+                document.getElementById('admin-panel').classList.remove('hidden');
+                renderizarTablaCodigos();
+            } else {
+                errorAdmin.classList.remove('hidden');
+            }
+        }
+
+        function renderizarTablaCodigos() {
+            const contenedor = document.getElementById('lista-codigos-body');
+            const filtro = (document.getElementById('buscador-funcionarios').value || '').trim().toUpperCase();
+
+            const filtrados = sorteoActual.filter(item =>
+                item.dador.toUpperCase().includes(filtro) ||
+                item.codigo.toUpperCase().includes(filtro)
+            );
+
+            if (filtrados.length === 0) {
+                contenedor.innerHTML = `
+                    <div class="p-6 text-center text-xs text-slate-400">
+                        No se encontraron funcionarios con ese criterio.
+                    </div>
+                `;
+                return;
+            }
+
+            contenedor.innerHTML = filtrados.map((item, index) => `
+                <div class="flex items-center justify-between gap-3 px-4 py-3 hover:bg-amber-50/50 transition text-left">
+                    <div class="min-w-0">
+                        <p class="text-xs font-bold text-gala-sapphire truncate">
+                            ${index + 1}. ${item.dador}
+                        </p>
+                        <p class="text-[11px] font-mono font-bold text-gala-goldDeep mt-0.5">
+                            Código: <span class="bg-amber-100/80 px-2 py-0.5 rounded text-gala-sapphire">${item.codigo}</span>
+                        </p>
+                    </div>
+                    <button
+                        onclick="copiarInvitacionIndividual('${item.dador}', '${item.codigo}')"
+                        class="shrink-0 px-3 py-1.5 rounded-lg bg-gala-sapphire/10 hover:bg-gala-sapphire hover:text-gala-goldBright text-gala-sapphire text-[10px] font-bold uppercase tracking-wider transition cursor-pointer"
+                    >
+                        <i class="fa-regular fa-copy mr-1"></i> Copiar
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function copiarTextoPortapapeles(texto, mensajeExito) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(texto).then(() => {
+                    mostrarAviso(mensajeExito);
+                }).catch(() => {
+                    fallbackCopiar(texto, mensajeExito);
+                });
+            } else {
+                fallbackCopiar(texto, mensajeExito);
+            }
+        }
+
+        function fallbackCopiar(texto, mensajeExito) {
+            const ta = document.createElement('textarea');
+            ta.value = texto;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+                document.execCommand('copy');
+                mostrarAviso(mensajeExito);
+            } catch (e) {
+                mostrarAviso('No se pudo copiar automáticamente');
+            }
+            document.body.removeChild(ta);
+        }
+
+        function copiarInvitacionIndividual(nombre, codigo) {
+            const msg = `🎄 ¡Hola ${nombre}! Ya está listo el sorteo de Amigo Secreto Navidad UTPL 2026 (Viernes 11 de Diciembre, 20:00 en Santo Domingo). Tu código secreto personal es: *${codigo}*`;
+            copiarTextoPortapapeles(msg, `Código de ${nombre} copiado`);
+        }
+
+        function copiarTodosLosCodigos() {
+            const lineas = sorteoActual.map((item, i) => `${i + 1}. ${item.dador} -> ${item.codigo}`).join('\n');
+            const textoCompleto = `CÓDIGOS AMIGO SECRETO UTPL 2026:\n\n${lineas}`;
+            copiarTextoPortapapeles(textoCompleto, 'Lista completa de códigos copiada');
+        }
+
+        function reSortearConConfirmacion() {
+            generarNuevoSorteoAleatorio();
+            renderizarTablaCodigos();
+            mostrarAviso('Nuevo sorteo circular generado sin parejas mutuas');
+        }
+
+        // =========================================================
         // 1. NIEVE CRISTALINA CON COPOS GEOMÉTRICOS Y DESTELLOS DORADOS
+        // =========================================================
         function iniciarNieve() {
             const canvas = document.getElementById('snow-canvas');
             const ctx = canvas.getContext('2d');
@@ -590,12 +1053,14 @@
             });
         }
 
-        // 2. ENLACES DE CALENDARIO
+        // =========================================================
+        // 2. ENLACES DE CALENDARIO Y ARCHIVO .ICS
+        // =========================================================
         function configurarEnlaces() {
-            const titulo = encodeURIComponent('Save the Date: Fiesta de Navidad UTPL');
+            const titulo = encodeURIComponent('Fiesta de Navidad UTPL — Santo Domingo');
             const ubicacion = encodeURIComponent('Santo Domingo, Ecuador');
             const detalle = encodeURIComponent(
-                'Fiesta de Navidad UTPL en Santo Domingo (20:00).'
+                'Fiesta de Navidad UTPL en Santo Domingo (Viernes 11 de Diciembre, 20:00 horas).'
             );
 
             document.getElementById('link-google-cal').href =
@@ -605,22 +1070,21 @@
                 `https://outlook.office.com/calendar/0/deeplink/compose?subject=${titulo}&startdt=2026-12-11T20:00:00&enddt=2026-12-11T23:59:00&body=${detalle}&location=${ubicacion}`;
         }
 
-        // 3. ARCHIVO UNIVERSAL .ICS
         function descargarICS(etiqueta) {
             const ics = [
                 'BEGIN:VCALENDAR',
                 'VERSION:2.0',
                 'CALSCALE:GREGORIAN',
                 'METHOD:PUBLISH',
-                'PRODID:-//UTPL//Fiesta de Navidad//ES',
+                'PRODID:-//UTPL//Fiesta de Navidad 2026//ES',
                 'BEGIN:VEVENT',
                 'UID:utpl-navidad-2026@utpl.edu.ec',
                 'DTSTAMP:20261124T160000Z',
                 'DTSTART:20261212T010000Z',
                 'DTEND:20261212T050000Z',
-                'SUMMARY:Save the Date: Fiesta de Navidad UTPL',
+                'SUMMARY:Fiesta de Navidad UTPL — Santo Domingo',
                 'LOCATION:Santo Domingo, Ecuador',
-                'DESCRIPTION:Fiesta de Navidad UTPL en Santo Domingo (20:00).',
+                'DESCRIPTION:Fiesta de Navidad UTPL en Santo Domingo (Viernes 11 de Diciembre, 20:00 horas).',
                 'STATUS:CONFIRMED',
                 'BEGIN:VALARM',
                 'TRIGGER:-P2D',
@@ -635,7 +1099,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'Save-The-Date-Fiesta-Navidad-UTPL.ics';
+            a.download = 'Fiesta-Navidad-UTPL-2026.ics';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -660,7 +1124,9 @@
             setTimeout(() => toast.classList.remove('visible'), 3200);
         }
 
-        // 4. CUENTA REGRESIVA AL VIERNES 11 DE DICIEMBRE 2026
+        // =========================================================
+        // 3. CUENTA REGRESIVA AL VIERNES 11 DE DICIEMBRE 2026 (20:00)
+        // =========================================================
         function iniciarCuentaRegresiva() {
             const meta = new Date('2026-12-11T20:00:00-05:00').getTime();
 
@@ -688,6 +1154,7 @@
         }
 
         window.addEventListener('load', () => {
+            cargarSorteo();
             iniciarNieve();
             configurarEnlaces();
             iniciarCuentaRegresiva();
