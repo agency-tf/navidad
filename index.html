@@ -76,24 +76,24 @@
 
         /* Tarjeta Arquitectónica de Invitación Oficial */
         .gala-monolith {
-            background: linear-gradient(180deg, #091836 0%, #0C1F45 31%, #FCF9F2 31.1%, #F5EFE4 100%);
+            background: linear-gradient(180deg, #051128 0%, #091D42 35%, #FCF9F2 35.1%, #F5EFE4 100%);
             box-shadow:
-                0 45px 110px -20px rgba(0, 0, 0, 0.92),
-                0 0 0 1px rgba(237, 210, 148, 0.5),
-                0 0 90px rgba(200, 155, 66, 0.16);
+                0 45px 110px -20px rgba(0, 0, 0, 0.94),
+                0 0 0 1.5px rgba(237, 210, 148, 0.65),
+                0 0 100px rgba(200, 155, 66, 0.2);
         }
 
         @media (min-width: 768px) {
             .gala-monolith {
-                background: linear-gradient(180deg, #091836 0%, #0C1F45 34%, #FCF9F2 34.1%, #F5EFE4 100%);
+                background: linear-gradient(180deg, #051128 0%, #091D42 37%, #FCF9F2 37.1%, #F5EFE4 100%);
             }
         }
 
         /* Pantalla de Apertura / Sello Imperial */
         .envelope-curtain {
             background:
-                radial-gradient(circle at 50% 38%, rgba(237, 210, 148, 0.18) 0%, transparent 55%),
-                linear-gradient(165deg, #040B1A 0%, #0A1B3E 52%, #040B1A 100%);
+                radial-gradient(circle at 50% 42%, rgba(237, 210, 148, 0.22) 0%, transparent 58%),
+                linear-gradient(165deg, #030A18 0%, #081A3D 52%, #030A18 100%);
             transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.75s;
         }
         .envelope-curtain.opened {
@@ -253,43 +253,115 @@
     <!-- =========================================================
          PORTADA DE APERTURA CON SELLO IMPERIAL DE LACRE
          ========================================================= -->
-    <div id="envelope-overlay" class="envelope-curtain fixed inset-0 z-50 flex flex-col items-center justify-center p-6 text-center">
+    <div id="envelope-overlay" class="envelope-curtain fixed inset-0 z-50 flex flex-col items-center justify-center p-6 text-center overflow-hidden">
         <!-- Marco fino exterior -->
-        <div class="absolute inset-4 sm:inset-8 border border-gala-goldLight/25 rounded-3xl pointer-events-none"></div>
+        <div class="absolute inset-4 sm:inset-8 border border-gala-goldLight/35 rounded-3xl pointer-events-none"></div>
+
+        <!-- Rama Navideña Esquina Superior Izquierda (Portada) -->
+        <svg class="absolute top-0 left-0 w-44 h-44 sm:w-64 sm:h-64 pointer-events-none opacity-95" viewBox="0 0 260 260" fill="none">
+            <defs>
+                <radialGradient id="goldOrnament" cx="35%" cy="30%" r="70%">
+                    <stop offset="0%" stop-color="#FFF6D6"/>
+                    <stop offset="45%" stop-color="#DFB868"/>
+                    <stop offset="85%" stop-color="#9A6D1F"/>
+                    <stop offset="100%" stop-color="#6E4A0E"/>
+                </radialGradient>
+                <radialGradient id="hollyBerry" cx="35%" cy="30%" r="70%">
+                    <stop offset="0%" stop-color="#FF6B6B"/>
+                    <stop offset="50%" stop-color="#B91C1C"/>
+                    <stop offset="100%" stop-color="#630D0D"/>
+                </radialGradient>
+            </defs>
+            <!-- Agujas de pino -->
+            <g stroke="#143D29" stroke-width="3.5" stroke-linecap="round">
+                <path d="M-10 20 Q 90 35 190 15"/>
+                <path d="M15 -10 Q 30 95 15 195"/>
+                <path d="M10 15 Q 80 75 135 125"/>
+            </g>
+            <g stroke="#1F5C3E" stroke-width="2" stroke-linecap="round">
+                <path d="M25 22 L42 6 M45 25 L65 8 M68 27 L88 10 M92 26 L112 10 M116 24 L136 8 M140 21 L160 6"/>
+                <path d="M25 28 L45 44 M48 31 L68 48 M72 32 L92 49 M96 30 L116 46 M120 27 L140 42"/>
+                <path d="M22 45 L6 62 M24 68 L8 86 M25 92 L9 110 M24 116 L8 134 M22 140 L7 158"/>
+                <path d="M28 48 L46 66 M30 72 L48 90 M30 96 L48 114 M28 120 L45 138"/>
+                <path d="M45 45 L72 38 M65 62 L92 55 M85 80 L112 72 M42 65 L35 92 M62 82 L55 110"/>
+            </g>
+            <!-- Bayas rojas -->
+            <circle cx="96" cy="24" r="5.5" fill="url(#hollyBerry)"/>
+            <circle cx="105" cy="30" r="5" fill="url(#hollyBerry)"/>
+            <circle cx="95" cy="34" r="4.5" fill="url(#hollyBerry)"/>
+            <circle cx="24" cy="112" r="5.5" fill="url(#hollyBerry)"/>
+            <circle cx="32" cy="120" r="5" fill="url(#hollyBerry)"/>
+            <!-- Lazo dorado y esfera -->
+            <path d="M58 52 C 36 36, 26 56, 54 62 C 28 70, 42 86, 58 64 C 74 86, 88 70, 62 62 C 90 56, 80 36, 58 52 Z" fill="url(#goldOrnament)"/>
+            <line x1="58" y1="64" x2="58" y2="82" stroke="#EDD294" stroke-width="1.5"/>
+            <rect x="53" y="80" width="10" height="6" rx="1.5" fill="#C89B42"/>
+            <circle cx="58" cy="108" r="23" fill="url(#goldOrnament)"/>
+            <ellipse cx="50" cy="99" rx="6" ry="3.5" transform="rotate(-30 50 99)" fill="#FFFBEB" opacity="0.65"/>
+        </svg>
+
+        <!-- Campanas Navideñas Esquina Superior Derecha (Portada) -->
+        <svg class="absolute top-0 right-0 w-40 h-44 sm:w-56 sm:h-60 pointer-events-none opacity-95" viewBox="0 0 220 240" fill="none">
+            <g stroke="#143D29" stroke-width="3.5" stroke-linecap="round">
+                <path d="M230 25 Q 160 45 105 95"/>
+                <path d="M225 65 Q 175 95 135 145"/>
+            </g>
+            <g stroke="#1F5C3E" stroke-width="2" stroke-linecap="round">
+                <path d="M195 38 L178 20 M175 50 L158 32 M155 64 L138 46 M135 78 L118 62"/>
+                <path d="M192 44 L208 62 M172 56 L188 74 M152 70 L168 88 M185 88 L168 72 M165 108 L148 92"/>
+            </g>
+            <line x1="154" y1="0" x2="154" y2="56" stroke="#EDD294" stroke-width="2" stroke-dasharray="3 2"/>
+            <!-- Campana izquierda -->
+            <g transform="translate(132, 66) rotate(14)">
+                <path d="M0 0 C -14 2, -18 24, -26 36 L 26 36 C 18 24, 14 2, 0 0 Z" fill="url(#goldOrnament)"/>
+                <ellipse cx="0" cy="36" rx="26" ry="5" fill="#8B651E"/>
+                <circle cx="0" cy="39" r="5" fill="#F8E5B4"/>
+            </g>
+            <!-- Campana derecha -->
+            <g transform="translate(168, 72) rotate(-14)">
+                <path d="M0 0 C -14 2, -18 24, -26 36 L 26 36 C 18 24, 14 2, 0 0 Z" fill="url(#goldOrnament)"/>
+                <ellipse cx="0" cy="36" rx="26" ry="5" fill="#8B651E"/>
+                <circle cx="0" cy="39" r="5" fill="#F8E5B4"/>
+            </g>
+            <!-- Lazo dorado superior -->
+            <path d="M154 54 C 134 40, 126 58, 150 62 C 128 68, 140 82, 154 64 C 168 82, 180 68, 158 62 C 182 58, 174 40, 154 54 Z" fill="url(#goldOrnament)"/>
+        </svg>
 
         <div class="relative z-10 max-w-md w-full flex flex-col items-center">
-            <span class="text-[10px] font-bold uppercase tracking-[0.38em] text-gala-goldLight/85 mb-3">
+            <span class="font-serif text-sm sm:text-base font-extrabold uppercase tracking-[0.22em] gold-foil mb-2 leading-snug max-w-xs sm:max-w-sm">
                 Universidad Técnica Particular de Loja
             </span>
 
-            <h2 class="font-serif text-2xl sm:text-3xl font-extrabold tracking-[0.1em] gold-foil mb-1">
-                CENA NAVIDEÑA 2026
+            <div class="flex items-center gap-3 w-48 justify-center my-1.5">
+                <span class="h-[1px] flex-1 bg-gala-goldLight/55"></span>
+                <i class="fa-solid fa-tree text-gala-goldLight text-xs"></i>
+                <span class="h-[1px] flex-1 bg-gala-goldLight/55"></span>
+            </div>
+
+            <h2 class="font-script text-5xl sm:text-6xl gold-foil py-1 leading-tight">
+                Cena Navideña
             </h2>
-            <p class="font-script text-3xl sm:text-4xl text-amber-100/90 mb-8">
-                Invitación Oficial
+            <p class="font-editorial italic text-xl sm:text-2xl text-amber-100/95 mb-7">
+                ¡Vive la Magia de la Navidad!
             </p>
 
             <!-- Sello de Lacre Interactivo -->
             <button
                 onclick="abrirSobreInvitacion()"
                 aria-label="Abrir Invitación Oficial"
-                class="group relative w-28 h-28 sm:w-32 sm:h-32 rounded-full imperial-crest flex flex-col items-center justify-center text-gala-obsidian cursor-pointer transition-transform duration-300 hover:scale-105 active:scale-95 mb-7"
+                class="group relative w-24 h-24 sm:w-28 sm:h-28 rounded-full imperial-crest flex flex-col items-center justify-center text-gala-obsidian cursor-pointer transition-transform duration-300 hover:scale-105 active:scale-95 mb-6"
             >
-                <span class="absolute -inset-2 rounded-full border border-gala-goldLight/40 animate-ping opacity-30"></span>
-                <span class="font-serif text-lg sm:text-xl font-extrabold tracking-[0.22em] leading-none">
-                    UTPL
-                </span>
-                <span class="w-8 h-[1.5px] bg-gala-obsidian/40 my-1.5"></span>
-                <span class="text-[8px] font-extrabold uppercase tracking-[0.26em]">
+                <span class="absolute -inset-2 rounded-full border border-gala-goldLight/45 animate-ping opacity-30"></span>
+                <i class="fa-solid fa-gift text-xl sm:text-2xl mb-1 text-gala-obsidian"></i>
+                <span class="text-[9px] font-extrabold uppercase tracking-[0.24em]">
                     Abrir
                 </span>
             </button>
 
             <button
                 onclick="abrirSobreInvitacion()"
-                class="px-6 py-2.5 rounded-full bg-white/[0.07] hover:bg-white/[0.14] border border-gala-goldLight/45 text-[10px] font-bold uppercase tracking-[0.28em] text-gala-champagne transition cursor-pointer"
+                class="px-7 py-3 rounded-full bg-gala-obsidian/80 hover:bg-gala-obsidian border border-gala-goldLight/75 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.24em] text-gala-goldLight shadow-lg transition cursor-pointer"
             >
-                Toca el sello para ingresar
+                Haz clic aquí para descubrir tu invitación
             </button>
         </div>
     </div>
@@ -302,51 +374,90 @@
         <article class="reveal relative w-full max-w-[480px] md:max-w-[820px] rounded-[30px] sm:rounded-[36px] overflow-hidden gala-monolith">
 
             <!-- Filete Interior de Joyería + Esquinas Filigrana -->
-            <div class="absolute inset-3 sm:inset-4 border border-gala-gold/40 rounded-[22px] sm:rounded-[28px] pointer-events-none z-30"></div>
+            <div class="absolute inset-3 sm:inset-4 border border-gala-gold/45 rounded-[22px] sm:rounded-[28px] pointer-events-none z-30"></div>
             <div class="filigree-corner filigree-tl"></div>
             <div class="filigree-corner filigree-tr"></div>
             <div class="filigree-corner filigree-bl"></div>
             <div class="filigree-corner filigree-br"></div>
 
             <!-- =====================================================
-                 ENCABEZADO DE GALA: INVITACIÓN OFICIAL
+                 ENCABEZADO DE GALA: ESTILO POSTAL NAVIDEÑA UTPL
                  ===================================================== -->
-            <header class="relative pt-8 pb-10 sm:pt-10 sm:pb-12 px-6 sm:px-12 text-center text-white overflow-hidden">
+            <header class="relative pt-9 pb-11 sm:pt-11 sm:pb-13 px-6 sm:px-12 text-center text-white overflow-hidden">
 
                 <!-- Resplandor Superior -->
-                <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[520px] h-[260px] bg-gala-goldLight/15 blur-3xl rounded-full pointer-events-none"></div>
+                <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-[540px] h-[280px] bg-gala-goldLight/15 blur-3xl rounded-full pointer-events-none"></div>
 
-                <!-- Cintillo Institucional -->
-                <div class="reveal d-1 relative z-10 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.07] border border-gala-goldLight/40 backdrop-blur-md mb-5">
-                    <span class="w-1.5 h-1.5 rounded-full bg-gala-goldLight"></span>
-                    <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.24em] sm:tracking-[0.3em] text-gala-goldLight">
+                <!-- Rama Navideña Izquierda (Header) -->
+                <svg class="absolute top-0 left-0 w-36 h-36 sm:w-52 sm:h-52 pointer-events-none opacity-95 z-10" viewBox="0 0 260 260" fill="none">
+                    <g stroke="#143D29" stroke-width="3.5" stroke-linecap="round">
+                        <path d="M-10 20 Q 90 35 190 15"/>
+                        <path d="M15 -10 Q 30 95 15 195"/>
+                        <path d="M10 15 Q 80 75 135 125"/>
+                    </g>
+                    <g stroke="#1F5C3E" stroke-width="2" stroke-linecap="round">
+                        <path d="M25 22 L42 6 M45 25 L65 8 M68 27 L88 10 M92 26 L112 10 M116 24 L136 8 M140 21 L160 6"/>
+                        <path d="M25 28 L45 44 M48 31 L68 48 M72 32 L92 49 M96 30 L116 46 M120 27 L140 42"/>
+                        <path d="M22 45 L6 62 M24 68 L8 86 M25 92 L9 110 M24 116 L8 134 M22 140 L7 158"/>
+                        <path d="M28 48 L46 66 M30 72 L48 90 M30 96 L48 114 M28 120 L45 138"/>
+                    </g>
+                    <circle cx="96" cy="24" r="5.5" fill="url(#hollyBerry)"/>
+                    <circle cx="105" cy="30" r="5" fill="url(#hollyBerry)"/>
+                    <circle cx="95" cy="34" r="4.5" fill="url(#hollyBerry)"/>
+                    <circle cx="24" cy="112" r="5.5" fill="url(#hollyBerry)"/>
+                    <circle cx="32" cy="120" r="5" fill="url(#hollyBerry)"/>
+                    <path d="M58 52 C 36 36, 26 56, 54 62 C 28 70, 42 86, 58 64 C 74 86, 88 70, 62 62 C 90 56, 80 36, 58 52 Z" fill="url(#goldOrnament)"/>
+                    <line x1="58" y1="64" x2="58" y2="82" stroke="#EDD294" stroke-width="1.5"/>
+                    <rect x="53" y="80" width="10" height="6" rx="1.5" fill="#C89B42"/>
+                    <circle cx="58" cy="108" r="22" fill="url(#goldOrnament)"/>
+                    <ellipse cx="50" cy="99" rx="5.5" ry="3" transform="rotate(-30 50 99)" fill="#FFFBEB" opacity="0.65"/>
+                </svg>
+
+                <!-- Campanas Doradas Derecha (Header) -->
+                <svg class="absolute top-0 right-0 w-32 h-36 sm:w-48 sm:h-52 pointer-events-none opacity-95 z-10" viewBox="0 0 220 240" fill="none">
+                    <g stroke="#143D29" stroke-width="3.5" stroke-linecap="round">
+                        <path d="M230 25 Q 160 45 105 95"/>
+                        <path d="M225 65 Q 175 95 135 145"/>
+                    </g>
+                    <g stroke="#1F5C3E" stroke-width="2" stroke-linecap="round">
+                        <path d="M195 38 L178 20 M175 50 L158 32 M155 64 L138 46 M135 78 L118 62"/>
+                        <path d="M192 44 L208 62 M172 56 L188 74 M152 70 L168 88"/>
+                    </g>
+                    <line x1="154" y1="0" x2="154" y2="56" stroke="#EDD294" stroke-width="2" stroke-dasharray="3 2"/>
+                    <g transform="translate(132, 66) rotate(14)">
+                        <path d="M0 0 C -14 2, -18 24, -26 36 L 26 36 C 18 24, 14 2, 0 0 Z" fill="url(#goldOrnament)"/>
+                        <ellipse cx="0" cy="36" rx="26" ry="5" fill="#8B651E"/>
+                        <circle cx="0" cy="39" r="5" fill="#F8E5B4"/>
+                    </g>
+                    <g transform="translate(168, 72) rotate(-14)">
+                        <path d="M0 0 C -14 2, -18 24, -26 36 L 26 36 C 18 24, 14 2, 0 0 Z" fill="url(#goldOrnament)"/>
+                        <ellipse cx="0" cy="36" rx="26" ry="5" fill="#8B651E"/>
+                        <circle cx="0" cy="39" r="5" fill="#F8E5B4"/>
+                    </g>
+                    <path d="M154 54 C 134 40, 126 58, 150 62 C 128 68, 140 82, 154 64 C 168 82, 180 68, 158 62 C 182 58, 174 40, 154 54 Z" fill="url(#goldOrnament)"/>
+                </svg>
+
+                <!-- Emblema Institucional en Relieve Dorado -->
+                <div class="reveal d-1 relative z-20 flex flex-col items-center">
+                    <span class="font-serif text-sm sm:text-lg md:text-xl font-extrabold uppercase tracking-[0.2em] sm:tracking-[0.24em] leading-snug max-w-xs sm:max-w-lg gold-foil drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">
                         Universidad Técnica Particular de Loja
                     </span>
-                    <span class="w-1.5 h-1.5 rounded-full bg-gala-goldLight"></span>
-                </div>
 
-                <!-- Medallón Central -->
-                <div class="reveal d-1 relative z-10 flex justify-center mb-4">
-                    <div class="imperial-crest w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center text-gala-obsidian">
-                        <svg class="w-9 h-9 sm:w-11 sm:h-11" viewBox="0 0 48 48" fill="none">
-                            <path d="M24 4L27.8 18.2L42 22L27.8 25.8L24 40L20.2 25.8L6 22L20.2 18.2L24 4Z" fill="#061129"/>
-                            <circle cx="24" cy="22" r="3.2" fill="#F8E5B4"/>
-                            <path d="M12 10L13.3 14.7L18 16L13.3 17.3L12 22L10.7 17.3L6 16L10.7 14.7L12 10Z" fill="#061129" opacity="0.75"/>
-                            <path d="M36 28L37.1 31.9L41 33L37.1 34.1L36 38L34.9 34.1L31 33L34.9 31.9L36 28Z" fill="#061129" opacity="0.75"/>
-                        </svg>
+                    <!-- Línea divisoria con arbolito dorado -->
+                    <div class="flex items-center gap-3 w-48 sm:w-64 justify-center my-2.5">
+                        <span class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-gala-goldLight to-gala-goldLight"></span>
+                        <i class="fa-solid fa-tree text-gala-goldLight text-xs"></i>
+                        <span class="h-[1px] flex-1 bg-gradient-to-l from-transparent via-gala-goldLight to-gala-goldLight"></span>
                     </div>
                 </div>
 
-                <!-- Títulos de Invitación Oficial -->
-                <div class="reveal d-2 relative z-10">
-                    <p class="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[0.42em] text-gala-champagne/90 mb-1.5">
-                        Invitación Oficial
-                    </p>
-                    <h1 class="font-serif text-[30px] sm:text-[44px] md:text-[50px] font-extrabold tracking-[0.06em] leading-[1.08] gold-foil">
-                        CENA NAVIDEÑA
+                <!-- Títulos Caligráficos Dorados -->
+                <div class="reveal d-2 relative z-20">
+                    <h1 class="font-script text-[48px] sm:text-[66px] md:text-[74px] leading-[1.05] gold-foil py-1 drop-shadow-[0_6px_16px_rgba(0,0,0,0.5)]">
+                        Cena Navideña
                     </h1>
-                    <p class="font-script text-[28px] sm:text-[38px] text-amber-100/95 mt-1 leading-tight">
-                        Celebrando juntos la alegría de compartir
+                    <p class="font-editorial italic text-[21px] sm:text-[27px] text-amber-100/95 mt-0.5 leading-tight tracking-wide">
+                        ¡Vive la Magia de la Navidad!
                     </p>
                 </div>
             </header>
@@ -567,6 +678,22 @@
                 </footer>
 
             </div>
+
+            <!-- Rama Navideña Decorativa Esquina Inferior Derecha -->
+            <svg class="absolute bottom-0 right-0 w-28 h-28 sm:w-36 sm:h-36 pointer-events-none opacity-85 z-20" viewBox="0 0 180 180" fill="none">
+                <g stroke="#143D29" stroke-width="3" stroke-linecap="round">
+                    <path d="M185 155 Q 115 150 55 170"/>
+                    <path d="M165 185 Q 155 115 172 60"/>
+                </g>
+                <g stroke="#1F5C3E" stroke-width="1.8" stroke-linecap="round">
+                    <path d="M150 156 L134 140 M128 158 L112 142 M106 161 L90 146 M84 165 L68 150"/>
+                    <path d="M162 145 L146 130 M164 124 L148 108 M166 102 L150 86"/>
+                </g>
+                <circle cx="112" cy="146" r="4.5" fill="url(#hollyBerry)"/>
+                <circle cx="120" cy="140" r="4" fill="url(#hollyBerry)"/>
+                <circle cx="144" cy="144" r="16" fill="url(#goldOrnament)"/>
+                <ellipse cx="139" cy="138" rx="4" ry="2.2" transform="rotate(-30 139 138)" fill="#FFFBEB" opacity="0.65"/>
+            </svg>
         </article>
     </main>
 
