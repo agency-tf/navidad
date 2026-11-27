@@ -595,6 +595,8 @@
                                     inputmode="numeric"
                                     pattern="[0-9]*"
                                     maxlength="6"
+                                    disabled
+                                    tabindex="-1"
                                     placeholder="Código de 4 dígitos"
                                     autocomplete="off"
                                     onkeydown="if(event.key==='Enter') revelarAmigoSecreto()"
@@ -1051,6 +1053,11 @@
             const overlay = document.getElementById('envelope-overlay');
             if (overlay) {
                 overlay.classList.add('opened');
+            }
+            const inputCodigo = document.getElementById('input-codigo');
+            if (inputCodigo) {
+                inputCodigo.disabled = false;
+                inputCodigo.removeAttribute('tabindex');
             }
             if (typeof confetti === 'function') {
                 confetti({
