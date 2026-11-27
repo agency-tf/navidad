@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UTPL | Fiesta de Navidad & Amigo Secreto 2026</title>
+    <title>UTPL | Invitación Oficial — Cena Navideña 2026</title>
 
-    <!-- Tipografías de Alta Gala Editorial -->
+    <!-- Tipografías Editorial & Gala -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,15 +19,16 @@
                 extend: {
                     colors: {
                         gala: {
-                            sapphire: '#061539',
-                            royal: '#0E296B',
-                            glacier: '#BAE6FD',
-                            porcelain: '#FAF8F5',
-                            ivory: '#F2ECE1',
-                            gold: '#C6963E',
-                            goldBright: '#E9C982',
-                            goldDeep: '#8E651E',
-                            ink: '#0B1736'
+                            obsidian: '#040B1A',
+                            midnight: '#091836',
+                            navy: '#0F2552',
+                            champagne: '#F5E6C4',
+                            gold: '#C89B42',
+                            goldLight: '#EDD294',
+                            goldDark: '#8B651E',
+                            cream: '#FCF9F2',
+                            sand: '#F3ECE0',
+                            ink: '#0B162E'
                         }
                     },
                     fontFamily: {
@@ -41,6 +42,9 @@
         }
     </script>
 
+    <!-- Librería de Confeti Festivo Ligero -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
     <style>
         * {
             box-sizing: border-box;
@@ -50,178 +54,151 @@
         body {
             margin: 0;
             min-height: 100vh;
-            background-color: #05112E;
+            background-color: #040B1A;
             background-image:
-                radial-gradient(circle at 50% 0%, rgba(186, 230, 253, 0.24) 0%, transparent 50%),
-                radial-gradient(circle at 18% 28%, rgba(233, 201, 130, 0.16) 0%, transparent 45%),
-                radial-gradient(circle at 82% 72%, rgba(56, 189, 248, 0.16) 0%, transparent 48%),
-                linear-gradient(180deg, #040D24 0%, #0A1E4D 52%, #051230 100%);
-            color: #FAF8F5;
+                radial-gradient(ellipse at 50% 0%, rgba(237, 210, 148, 0.16) 0%, transparent 55%),
+                radial-gradient(circle at 15% 45%, rgba(29, 78, 216, 0.16) 0%, transparent 45%),
+                radial-gradient(circle at 85% 75%, rgba(200, 155, 66, 0.14) 0%, transparent 50%),
+                linear-gradient(180deg, #030814 0%, #091836 50%, #040B1A 100%);
+            color: #FCF9F2;
             overflow-x: hidden;
         }
 
-        /* Resplandor Celestial Giratorio */
-        .celestial-halo {
-            position: fixed;
-            top: -220px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 780px;
-            height: 780px;
-            background: conic-gradient(
-                from 0deg,
-                transparent 0deg,
-                rgba(233, 201, 130, 0.12) 35deg,
-                transparent 70deg,
-                rgba(186, 230, 253, 0.12) 130deg,
-                transparent 180deg,
-                rgba(233, 201, 130, 0.12) 240deg,
-                transparent 300deg
-            );
-            border-radius: 50%;
-            filter: blur(28px);
-            pointer-events: none;
-            z-index: 1;
-            animation: spinHalo 42s linear infinite;
-        }
-
-        @keyframes spinHalo {
-            to { transform: translateX(-50%) rotate(360deg); }
-        }
-
-        /* Canvas de Nieve Cristalina */
-        #snow-canvas {
+        /* Canvas de Partículas Doradas y Nieve Sutil */
+        #ambient-canvas {
             position: fixed;
             inset: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 2;
+            z-index: 1;
         }
 
-        /* Tarjeta Maestra de Porcelana Perlada & Oro */
-        .editorial-suite {
-            background:
-                radial-gradient(circle at 50% 0%, #FFFFFF 0%, #FAF8F5 55%, #F0E9DC 100%);
-            color: #0B1736;
+        /* Tarjeta Arquitectónica de Invitación Oficial */
+        .gala-monolith {
+            background: linear-gradient(180deg, #091836 0%, #0C1F45 31%, #FCF9F2 31.1%, #F5EFE4 100%);
             box-shadow:
-                0 45px 110px -15px rgba(1, 6, 20, 0.85),
-                0 0 0 1px rgba(233, 201, 130, 0.65),
-                0 0 70px rgba(186, 230, 253, 0.18);
+                0 45px 110px -20px rgba(0, 0, 0, 0.92),
+                0 0 0 1px rgba(237, 210, 148, 0.5),
+                0 0 90px rgba(200, 155, 66, 0.16);
         }
 
-        /* Cabecera Zafiro Imperial */
-        .sapphire-crown {
+        @media (min-width: 768px) {
+            .gala-monolith {
+                background: linear-gradient(180deg, #091836 0%, #0C1F45 34%, #FCF9F2 34.1%, #F5EFE4 100%);
+            }
+        }
+
+        /* Pantalla de Apertura / Sello Imperial */
+        .envelope-curtain {
             background:
-                radial-gradient(ellipse at 50% 100%, rgba(233, 201, 130, 0.25) 0%, transparent 65%),
-                radial-gradient(circle at 50% 18%, rgba(186, 230, 253, 0.22) 0%, transparent 55%),
-                linear-gradient(160deg, #061539 0%, #0E2A6E 55%, #071942 100%);
+                radial-gradient(circle at 50% 38%, rgba(237, 210, 148, 0.18) 0%, transparent 55%),
+                linear-gradient(165deg, #040B1A 0%, #0A1B3E 52%, #040B1A 100%);
+            transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.75s;
+        }
+        .envelope-curtain.opened {
+            opacity: 0;
+            transform: scale(1.06);
+            visibility: hidden;
+            pointer-events: none;
         }
 
-        /* Oro Satinado Metálico */
-        .gold-foil-text {
-            background: linear-gradient(120deg, #9C7022 5%, #F5DFA6 34%, #C6963E 54%, #FFF3CE 76%, #8E651E 96%);
+        /* Esquinas Filigrana Dorada */
+        .filigree-corner {
+            position: absolute;
+            width: 34px;
+            height: 34px;
+            border-color: rgba(237, 210, 148, 0.65);
+            pointer-events: none;
+            z-index: 35;
+        }
+        .filigree-tl { top: 18px; left: 18px; border-top-width: 2px; border-left-width: 2px; border-top-left-radius: 14px; }
+        .filigree-tr { top: 18px; right: 18px; border-top-width: 2px; border-right-width: 2px; border-top-right-radius: 14px; }
+        .filigree-bl { bottom: 18px; left: 18px; border-bottom-width: 2px; border-left-width: 2px; border-bottom-left-radius: 14px; }
+        .filigree-br { bottom: 18px; right: 18px; border-bottom-width: 2px; border-right-width: 2px; border-bottom-right-radius: 14px; }
+
+        /* Texto en Pan de Oro Metálico */
+        .gold-foil {
+            background: linear-gradient(115deg, #9A6E1F 5%, #F8E5B4 32%, #C89B42 52%, #FFF5D6 74%, #8B651E 96%);
             background-size: 220% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: foilFlow 5.5s linear infinite;
+            animation: foilShimmer 6s linear infinite;
         }
 
-        @keyframes foilFlow {
+        @keyframes foilShimmer {
             0% { background-position: 220% center; }
             100% { background-position: -220% center; }
         }
 
-        /* Bloque Escultural de Fecha en Oro & Zafiro */
-        .royal-date-card {
-            background:
-                radial-gradient(circle at 25% 15%, rgba(255, 255, 255, 0.2) 0%, transparent 55%),
-                linear-gradient(155deg, #091E52 0%, #0E2B73 55%, #061438 100%);
-            border: 1.5px solid #D7B162;
+        /* Sello de Lacre / Medallón Imperial */
+        .imperial-crest {
+            background: radial-gradient(circle at 30% 30%, #F8E5B4 0%, #C89B42 55%, #845D17 100%);
             box-shadow:
-                0 22px 44px -12px rgba(9, 30, 82, 0.42),
-                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+                0 12px 28px rgba(0, 0, 0, 0.45),
+                inset 0 2px 4px rgba(255, 255, 255, 0.65),
+                0 0 0 4px rgba(237, 210, 148, 0.22);
         }
 
-        /* Bloques en Cristal Perlado */
-        .pearl-city-card {
-            background: linear-gradient(155deg, #FFFFFF 0%, #F4EFE4 100%);
-            border: 1.5px solid rgba(198, 150, 62, 0.55);
-            box-shadow:
-                0 20px 40px -14px rgba(11, 23, 54, 0.14),
-                inset 0 1px 0 #FFFFFF;
+        /* Tarjetas de Detalle Editorial */
+        .detail-glass {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(200, 155, 66, 0.45);
+            box-shadow: 0 16px 35px -12px rgba(9, 24, 54, 0.12);
         }
 
-        /* Tarjeta de Amigo Secreto */
-        .secret-santa-box {
+        .detail-navy {
+            background: linear-gradient(155deg, #07132B 0%, #0F2757 60%, #061024 100%);
+            border: 1.5px solid #D9B365;
+            box-shadow: 0 20px 40px -12px rgba(7, 19, 43, 0.45);
+        }
+
+        /* Sección Amigo Secreto */
+        .secret-vault {
             background:
-                radial-gradient(circle at 100% 0%, rgba(233, 201, 130, 0.2) 0%, transparent 55%),
-                linear-gradient(145deg, #071944 0%, #0E2C75 60%, #061336 100%);
-            border: 1.5px solid #D7B162;
-            box-shadow: 0 24px 48px -14px rgba(6, 21, 57, 0.45);
+                radial-gradient(circle at 90% 10%, rgba(237, 210, 148, 0.18) 0%, transparent 50%),
+                linear-gradient(145deg, #061129 0%, #0D2352 55%, #050E22 100%);
+            border: 1.5px solid #D9B365;
+            box-shadow: 0 26px 50px -14px rgba(4, 11, 26, 0.5);
         }
 
-        /* Botón Joya Zafiro & Oro */
-        .btn-royal-gala {
+        /* Botón Dorado Principal */
+        .btn-champagne {
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, #081B4B 0%, #103282 50%, #07173E 100%);
-            color: #F7E3B0;
-            border: 1.5px solid #D7B162;
-            box-shadow: 0 18px 38px -10px rgba(8, 27, 75, 0.5);
-            transition: transform 0.28s ease, box-shadow 0.28s ease;
-        }
-        .btn-royal-gala::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -75%;
-            width: 45%;
-            height: 200%;
-            background: linear-gradient(to right, transparent, rgba(255, 243, 206, 0.45), transparent);
-            transform: rotate(25deg);
-            animation: gleamPass 3.8s infinite;
-        }
-        @keyframes gleamPass {
-            0%, 55% { left: -75%; }
-            100% { left: 135%; }
-        }
-        .btn-royal-gala:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 24px 46px -10px rgba(8, 27, 75, 0.65);
-        }
-
-        /* Botón Dorado para Revelar Amigo Secreto */
-        .btn-gold-reveal {
-            background: linear-gradient(135deg, #E9C982 0%, #C6963E 55%, #A67926 100%);
-            color: #061539;
-            box-shadow: 0 14px 30px -8px rgba(233, 201, 130, 0.45);
+            background: linear-gradient(135deg, #F4DFAA 0%, #C89B42 55%, #9E7324 100%);
+            color: #061129;
+            box-shadow: 0 12px 28px -6px rgba(200, 155, 66, 0.5);
             transition: transform 0.25s ease, filter 0.25s ease;
         }
-        .btn-gold-reveal:hover {
+        .btn-champagne:hover {
             transform: translateY(-2px);
             filter: brightness(1.06);
         }
 
-        /* Efecto de Revelación */
-        @keyframes giftRevealPop {
-            0% { opacity: 0; transform: scale(0.9) translateY(10px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
+        /* Botón Azul Noche */
+        .btn-midnight {
+            background: linear-gradient(135deg, #07132B 0%, #112C63 50%, #061024 100%);
+            color: #F5E6C4;
+            border: 1px solid #C89B42;
+            box-shadow: 0 14px 30px -10px rgba(7, 19, 43, 0.45);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
-        .gift-reveal-anim {
-            animation: giftRevealPop 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        .btn-midnight:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 38px -10px rgba(7, 19, 43, 0.6);
         }
 
-        /* Animación de Entrada */
+        /* Animaciones de Entrada y Revelación */
         .reveal {
             opacity: 0;
-            transform: translateY(22px);
-            animation: fadeUp 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            transform: translateY(20px);
+            animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
-        .d-1 { animation-delay: 0.1s; }
-        .d-2 { animation-delay: 0.24s; }
-        .d-3 { animation-delay: 0.38s; }
-        .d-4 { animation-delay: 0.52s; }
+        .d-1 { animation-delay: 0.08s; }
+        .d-2 { animation-delay: 0.2s; }
+        .d-3 { animation-delay: 0.32s; }
+        .d-4 { animation-delay: 0.44s; }
 
         @keyframes fadeUp {
             to {
@@ -230,19 +207,27 @@
             }
         }
 
-        /* Modal */
+        @keyframes giftPop {
+            0% { opacity: 0; transform: scale(0.92) translateY(8px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .gift-reveal-anim {
+            animation: giftPop 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        /* Modales */
         .modal-backdrop {
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.28s ease;
         }
         .modal-backdrop.active {
             opacity: 1;
             pointer-events: auto;
         }
         .modal-card {
-            transform: translateY(18px) scale(0.97);
-            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: translateY(20px) scale(0.97);
+            transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
         }
         .modal-backdrop.active .modal-card {
             transform: translateY(0) scale(1);
@@ -252,7 +237,7 @@
         .toast-msg {
             transform: translate(-50%, 100px);
             opacity: 0;
-            transition: all 0.35s ease;
+            transition: all 0.32s ease;
         }
         .toast-msg.visible {
             transform: translate(-50%, 0);
@@ -260,233 +245,268 @@
         }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-gala-goldBright selection:text-gala-sapphire">
+<body class="font-sans antialiased selection:bg-gala-goldLight selection:text-gala-obsidian">
 
-    <!-- Halo Celestial Animado -->
-    <div class="celestial-halo" aria-hidden="true"></div>
-
-    <!-- Nieve Cristalina a Pantalla Completa -->
-    <canvas id="snow-canvas" aria-hidden="true"></canvas>
+    <!-- Partículas Doradas y Destellos Ambientales -->
+    <canvas id="ambient-canvas" aria-hidden="true"></canvas>
 
     <!-- =========================================================
-         COMPOSICIÓN PRINCIPAL — FIESTA DE NAVIDAD & AMIGO SECRETO
+         PORTADA DE APERTURA CON SELLO IMPERIAL DE LACRE
          ========================================================= -->
-    <main class="relative z-10 min-h-screen w-full flex flex-col items-center justify-center py-5 sm:py-8 px-3 sm:px-6">
+    <div id="envelope-overlay" class="envelope-curtain fixed inset-0 z-50 flex flex-col items-center justify-center p-6 text-center">
+        <!-- Marco fino exterior -->
+        <div class="absolute inset-4 sm:inset-8 border border-gala-goldLight/25 rounded-3xl pointer-events-none"></div>
 
-        <article class="reveal relative w-full max-w-[460px] md:max-w-[780px] rounded-[28px] sm:rounded-[32px] overflow-hidden editorial-suite">
+        <div class="relative z-10 max-w-md w-full flex flex-col items-center">
+            <span class="text-[10px] font-bold uppercase tracking-[0.38em] text-gala-goldLight/85 mb-3">
+                Universidad Técnica Particular de Loja
+            </span>
 
-            <!-- Marco Interior de Joyería -->
-            <div class="absolute inset-2.5 sm:inset-3.5 border border-gala-gold/40 rounded-[22px] sm:rounded-[25px] pointer-events-none z-30"></div>
+            <h2 class="font-serif text-2xl sm:text-3xl font-extrabold tracking-[0.1em] gold-foil mb-1">
+                CENA NAVIDEÑA 2026
+            </h2>
+            <p class="font-script text-3xl sm:text-4xl text-amber-100/90 mb-8">
+                Invitación Oficial
+            </p>
+
+            <!-- Sello de Lacre Interactivo -->
+            <button
+                onclick="abrirSobreInvitacion()"
+                aria-label="Abrir Invitación Oficial"
+                class="group relative w-28 h-28 sm:w-32 sm:h-32 rounded-full imperial-crest flex flex-col items-center justify-center text-gala-obsidian cursor-pointer transition-transform duration-300 hover:scale-105 active:scale-95 mb-7"
+            >
+                <span class="absolute -inset-2 rounded-full border border-gala-goldLight/40 animate-ping opacity-30"></span>
+                <span class="font-serif text-lg sm:text-xl font-extrabold tracking-[0.22em] leading-none">
+                    UTPL
+                </span>
+                <span class="w-8 h-[1.5px] bg-gala-obsidian/40 my-1.5"></span>
+                <span class="text-[8px] font-extrabold uppercase tracking-[0.26em]">
+                    Abrir
+                </span>
+            </button>
+
+            <button
+                onclick="abrirSobreInvitacion()"
+                class="px-6 py-2.5 rounded-full bg-white/[0.07] hover:bg-white/[0.14] border border-gala-goldLight/45 text-[10px] font-bold uppercase tracking-[0.28em] text-gala-champagne transition cursor-pointer"
+            >
+                Toca el sello para ingresar
+            </button>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         INVITACIÓN OFICIAL — CENA NAVIDEÑA UTPL 2026
+         ========================================================= -->
+    <main class="relative z-10 min-h-screen w-full flex flex-col items-center justify-center py-6 sm:py-10 px-3 sm:px-6">
+
+        <article class="reveal relative w-full max-w-[480px] md:max-w-[820px] rounded-[30px] sm:rounded-[36px] overflow-hidden gala-monolith">
+
+            <!-- Filete Interior de Joyería + Esquinas Filigrana -->
+            <div class="absolute inset-3 sm:inset-4 border border-gala-gold/40 rounded-[22px] sm:rounded-[28px] pointer-events-none z-30"></div>
+            <div class="filigree-corner filigree-tl"></div>
+            <div class="filigree-corner filigree-tr"></div>
+            <div class="filigree-corner filigree-bl"></div>
+            <div class="filigree-corner filigree-br"></div>
 
             <!-- =====================================================
-                 SECCIÓN SUPERIOR: CIELO ZAFIRO Y CORONA NAVIDEÑA
+                 ENCABEZADO DE GALA: INVITACIÓN OFICIAL
                  ===================================================== -->
-            <header class="sapphire-crown relative pt-6 pb-9 md:pt-7 md:pb-10 px-5 sm:px-10 text-center text-white overflow-hidden">
+            <header class="relative pt-8 pb-10 sm:pt-10 sm:pb-12 px-6 sm:px-12 text-center text-white overflow-hidden">
 
-                <!-- Estrellas Decorativas Sutiles -->
-                <div class="absolute inset-0 opacity-45 pointer-events-none" style="background-image: radial-gradient(#FFF7DF 1px, transparent 1px), radial-gradient(#BAE6FD 1px, transparent 1px); background-size: 46px 46px; background-position: 0 0, 23px 23px;"></div>
+                <!-- Resplandor Superior -->
+                <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[520px] h-[260px] bg-gala-goldLight/15 blur-3xl rounded-full pointer-events-none"></div>
 
-                <!-- Fila Superior Compacta: Distintivo + Corona -->
-                <div class="reveal d-1 relative z-10 flex flex-col md:flex-row items-center justify-center gap-2.5 md:gap-4 mb-3">
-                    <!-- Corona Navideña Compacta -->
-                    <div class="relative w-14 h-14 md:w-16 md:h-16 flex items-center justify-center shrink-0">
-                        <div class="absolute inset-1 rounded-full bg-gala-goldBright/20 blur-lg"></div>
-                        <svg class="w-14 h-14 md:w-16 md:h-16 drop-shadow-[0_6px_14px_rgba(233,201,130,0.45)]" viewBox="0 0 120 120" fill="none">
-                            <circle cx="60" cy="62" r="42" stroke="url(#wreathGold)" stroke-width="1.5" stroke-dasharray="3 3"/>
-                            <circle cx="60" cy="62" r="34" stroke="url(#wreathGold)" stroke-width="1"/>
-                            <path d="M24 72C18 62 18 48 26 38C28 47 26 56 24 72Z" fill="url(#wreathGold)"/>
-                            <path d="M32 88C22 80 18 68 21 56C26 65 28 74 32 88Z" fill="url(#wreathGold)" opacity="0.85"/>
-                            <path d="M46 99C34 95 26 86 25 75C32 82 38 89 46 99Z" fill="url(#wreathGold)" opacity="0.7"/>
-                            <path d="M96 72C102 62 102 48 94 38C92 47 94 56 96 72Z" fill="url(#wreathGold)"/>
-                            <path d="M88 88C98 80 102 68 99 56C94 65 92 74 88 88Z" fill="url(#wreathGold)" opacity="0.85"/>
-                            <path d="M74 99C86 95 94 86 95 75C88 82 82 89 74 99Z" fill="url(#wreathGold)" opacity="0.7"/>
-                            <path d="M60 6L63.2 18.8L76 22L63.2 25.2L60 38L56.8 25.2L44 22L56.8 18.8L60 6Z" fill="#FFFDF7"/>
-                            <g stroke="#BAE6FD" stroke-width="1.6" stroke-linecap="round">
-                                <line x1="60" y1="45" x2="60" y2="79"/>
-                                <line x1="45.3" y1="53.5" x2="74.7" y2="70.5"/>
-                                <line x1="74.7" y1="53.5" x2="45.3" y2="70.5"/>
-                            </g>
-                            <circle cx="60" cy="62" r="4" fill="#FFFDF7"/>
-                            <defs>
-                                <linearGradient id="wreathGold" x1="20" y1="10" x2="100" y2="105" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#FFF5D6"/>
-                                    <stop offset="0.5" stop-color="#E9C982"/>
-                                    <stop offset="1" stop-color="#A67926"/>
-                                </linearGradient>
-                            </defs>
+                <!-- Cintillo Institucional -->
+                <div class="reveal d-1 relative z-10 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.07] border border-gala-goldLight/40 backdrop-blur-md mb-5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-gala-goldLight"></span>
+                    <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.24em] sm:tracking-[0.3em] text-gala-goldLight">
+                        Universidad Técnica Particular de Loja
+                    </span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-gala-goldLight"></span>
+                </div>
+
+                <!-- Medallón Central -->
+                <div class="reveal d-1 relative z-10 flex justify-center mb-4">
+                    <div class="imperial-crest w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center text-gala-obsidian">
+                        <svg class="w-9 h-9 sm:w-11 sm:h-11" viewBox="0 0 48 48" fill="none">
+                            <path d="M24 4L27.8 18.2L42 22L27.8 25.8L24 40L20.2 25.8L6 22L20.2 18.2L24 4Z" fill="#061129"/>
+                            <circle cx="24" cy="22" r="3.2" fill="#F8E5B4"/>
+                            <path d="M12 10L13.3 14.7L18 16L13.3 17.3L12 22L10.7 17.3L6 16L10.7 14.7L12 10Z" fill="#061129" opacity="0.75"/>
+                            <path d="M36 28L37.1 31.9L41 33L37.1 34.1L36 38L34.9 34.1L31 33L34.9 31.9L36 28Z" fill="#061129" opacity="0.75"/>
                         </svg>
                     </div>
-
-                    <div class="inline-flex items-center gap-2.5 px-4 py-1 rounded-full bg-white/[0.08] border border-gala-goldBright/45 backdrop-blur-md">
-                        <span class="w-1.5 h-1.5 rounded-full bg-gala-goldBright"></span>
-                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] sm:tracking-[0.28em] text-gala-goldBright">
-                            Universidad Técnica Particular de Loja
-                        </span>
-                        <span class="w-1.5 h-1.5 rounded-full bg-gala-goldBright"></span>
-                    </div>
                 </div>
 
-                <!-- Títulos Principales -->
+                <!-- Títulos de Invitación Oficial -->
                 <div class="reveal d-2 relative z-10">
-                    <p class="text-[10px] font-bold uppercase tracking-[0.38em] text-gala-glacier mb-1">
-                        Celebración Navideña
+                    <p class="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[0.42em] text-gala-champagne/90 mb-1.5">
+                        Invitación Oficial
                     </p>
-                    <h1 class="font-serif text-[26px] sm:text-[38px] md:text-[42px] font-extrabold tracking-[0.07em] leading-[1.1] gold-foil-text">
-                        FIESTA DE NAVIDAD
+                    <h1 class="font-serif text-[30px] sm:text-[44px] md:text-[50px] font-extrabold tracking-[0.06em] leading-[1.08] gold-foil">
+                        CENA NAVIDEÑA
                     </h1>
-                    <p class="font-script text-[26px] sm:text-[34px] text-sky-100/95 mt-0.5 leading-tight">
-                        Una noche mágica por celebrar
+                    <p class="font-script text-[28px] sm:text-[38px] text-amber-100/95 mt-1 leading-tight">
+                        Celebrando juntos la alegría de compartir
                     </p>
                 </div>
-
-                <!-- Curva Panorámica Inferior de Transición -->
-                <svg class="absolute bottom-0 left-0 w-full h-5 sm:h-7 text-[#FAF8F5]" viewBox="0 0 700 40" preserveAspectRatio="none">
-                    <path d="M0 40 C 210 0, 490 0, 700 40 L 700 40 L 0 40 Z" fill="currentColor"/>
-                </svg>
             </header>
 
             <!-- =====================================================
-                 SECCIÓN INFERIOR: FECHA, HORA, LUGAR Y AMIGO SECRETO
+                 CUERPO DE LA INVITACIÓN: DETALLES, AGENDA Y SORTEO
                  ===================================================== -->
-            <div class="relative z-10 px-5 pt-2 pb-7 sm:px-9 sm:pb-8 text-center">
+            <div class="relative z-10 px-5 pt-2 pb-8 sm:px-10 sm:pb-10 text-center text-gala-ink">
 
-                <p class="reveal d-2 font-editorial italic text-[17px] sm:text-[21px] text-slate-700 leading-snug max-w-xl mx-auto mb-5">
-                    "Reserva esta fecha especial en tu agenda para compartir juntos la alegría y la magia de la Navidad."
-                </p>
+                <!-- Tarjeta Editorial Principal -->
+                <div class="reveal d-2 detail-glass rounded-[24px] p-5 sm:p-7 mb-6">
+                    <p class="font-editorial italic text-[18px] sm:text-[23px] text-slate-700 leading-relaxed max-w-2xl mx-auto mb-6">
+                        "Tenemos el honor de invitarte a compartir una velada inolvidable de confraternidad, alegría y espíritu navideño junto a nuestro equipo."
+                    </p>
 
-                <!-- TARJETAS ESCULTURALES HORIZONTALES -->
-                <div class="reveal d-3 grid grid-cols-3 gap-2.5 sm:gap-4 items-stretch mb-5">
+                    <!-- Grid de 3 Pilares: Fecha, Cena de Gala y Ciudad Sede -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
 
-                    <!-- Fecha: Viernes 11 de Diciembre -->
-                    <div class="royal-date-card rounded-[18px] sm:rounded-[22px] py-3.5 px-2 sm:p-4 flex flex-col items-center justify-center text-white relative overflow-hidden">
-                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] sm:tracking-[0.3em] text-gala-glacier">
-                            Viernes
-                        </span>
-                        <span class="font-serif text-3xl sm:text-[44px] font-extrabold leading-none my-1 gold-foil-text">
-                            11
-                        </span>
-                        <span class="text-[9px] sm:text-[11px] font-bold uppercase tracking-[0.16em] sm:tracking-[0.24em] text-amber-100">
-                            Diciembre
-                        </span>
-                    </div>
-
-                    <!-- Hora: 20:00 -->
-                    <div class="pearl-city-card rounded-[18px] sm:rounded-[22px] py-3.5 px-2 sm:p-4 flex flex-col items-center justify-center relative overflow-hidden">
-                        <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gala-sapphire/10 text-gala-sapphire flex items-center justify-center mb-1">
-                            <i class="fa-regular fa-clock text-[11px] sm:text-xs"></i>
+                        <!-- Fecha -->
+                        <div class="detail-navy rounded-2xl p-4 text-white flex flex-col items-center justify-center">
+                            <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-gala-goldLight">
+                                Viernes
+                            </span>
+                            <span class="font-serif text-4xl sm:text-[46px] font-extrabold leading-none my-1 gold-foil">
+                                11
+                            </span>
+                            <span class="text-[11px] font-bold uppercase tracking-[0.24em] text-amber-100">
+                                Diciembre 2026
+                            </span>
                         </div>
-                        <span class="font-serif text-xl sm:text-[28px] font-extrabold text-gala-sapphire leading-none my-0.5">
-                            20:00
-                        </span>
-                        <span class="px-2.5 py-0.5 rounded-full bg-gala-sapphire text-gala-goldBright text-[9px] font-extrabold uppercase tracking-[0.22em] mt-1">
-                            Horas
-                        </span>
-                    </div>
 
-                    <!-- Ciudad: Santo Domingo -->
-                    <div class="pearl-city-card rounded-[18px] sm:rounded-[22px] py-3.5 px-2 sm:p-4 flex flex-col items-center justify-center relative overflow-hidden">
-                        <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gala-sapphire text-gala-goldBright flex items-center justify-center shadow-sm mb-1">
-                            <i class="fa-solid fa-location-dot text-[10px] sm:text-xs"></i>
+                        <!-- Cena de Gala -->
+                        <div class="rounded-2xl bg-gala-cream border border-gala-gold/45 p-4 flex flex-col items-center justify-center">
+                            <div class="w-8 h-8 rounded-full bg-gala-midnight text-gala-goldLight flex items-center justify-center mb-1.5">
+                                <i class="fa-solid fa-champagne-glasses text-xs"></i>
+                            </div>
+                            <span class="text-[9px] font-bold uppercase tracking-[0.26em] text-slate-400">
+                                Cena de Gala
+                            </span>
+                            <span class="font-serif text-2xl sm:text-[28px] font-extrabold text-gala-midnight leading-tight mt-0.5">
+                                20:00
+                            </span>
+                            <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-gala-goldDark mt-0.5">
+                                Horas • Elegante
+                            </span>
                         </div>
-                        <span class="font-serif text-[12px] sm:text-[17px] font-extrabold text-gala-sapphire tracking-wide leading-tight">
-                            SANTO DOMINGO
-                        </span>
-                        <span class="text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-gala-goldDeep mt-1">
-                            Sede de Gala
-                        </span>
-                    </div>
 
+                        <!-- Ciudad Sede -->
+                        <div class="rounded-2xl bg-gala-cream border border-gala-gold/45 p-4 flex flex-col items-center justify-center">
+                            <div class="w-8 h-8 rounded-full bg-gala-midnight text-gala-goldLight flex items-center justify-center mb-1.5">
+                                <i class="fa-solid fa-location-dot text-xs"></i>
+                            </div>
+                            <span class="text-[9px] font-bold uppercase tracking-[0.26em] text-slate-400">
+                                Ciudad Sede
+                            </span>
+                            <span class="font-serif text-lg sm:text-[20px] font-extrabold text-gala-midnight leading-tight mt-1">
+                                SANTO DOMINGO
+                            </span>
+                        </div>
+
+                    </div>
                 </div>
 
-                <!-- Cuenta Regresiva + Botón Agendar Fecha -->
-                <div class="reveal d-3 flex flex-col md:flex-row items-center justify-between gap-4 bg-white/75 border border-gala-gold/35 rounded-2xl p-3.5 sm:px-5 sm:py-4 mb-6">
-                    <div class="grid grid-cols-4 gap-2 w-full md:w-auto md:min-w-[290px]">
-                        <div class="rounded-xl bg-white border border-gala-gold/30 py-2 px-1 shadow-xs">
-                            <span id="cd-days" class="block font-serif text-base sm:text-lg font-extrabold text-gala-sapphire leading-tight">--</span>
+                <!-- Cuenta Regresiva + Botones de Itinerario y Calendario -->
+                <div class="reveal d-3 flex flex-col md:flex-row items-center justify-between gap-3.5 bg-white/85 border border-gala-gold/40 rounded-2xl p-4 sm:px-5 sm:py-4 mb-6 shadow-xs">
+                    <div class="grid grid-cols-4 gap-2 w-full md:w-auto md:min-w-[270px]">
+                        <div class="rounded-xl bg-gala-cream border border-gala-gold/35 py-2 px-1">
+                            <span id="cd-days" class="block font-serif text-base sm:text-lg font-extrabold text-gala-midnight leading-tight">--</span>
                             <span class="text-[8px] font-bold uppercase tracking-[0.18em] text-slate-400">Días</span>
                         </div>
-                        <div class="rounded-xl bg-white border border-gala-gold/30 py-2 px-1 shadow-xs">
-                            <span id="cd-hours" class="block font-serif text-base sm:text-lg font-extrabold text-gala-sapphire leading-tight">--</span>
+                        <div class="rounded-xl bg-gala-cream border border-gala-gold/35 py-2 px-1">
+                            <span id="cd-hours" class="block font-serif text-base sm:text-lg font-extrabold text-gala-midnight leading-tight">--</span>
                             <span class="text-[8px] font-bold uppercase tracking-[0.18em] text-slate-400">Horas</span>
                         </div>
-                        <div class="rounded-xl bg-white border border-gala-gold/30 py-2 px-1 shadow-xs">
-                            <span id="cd-mins" class="block font-serif text-base sm:text-lg font-extrabold text-gala-sapphire leading-tight">--</span>
+                        <div class="rounded-xl bg-gala-cream border border-gala-gold/35 py-2 px-1">
+                            <span id="cd-mins" class="block font-serif text-base sm:text-lg font-extrabold text-gala-midnight leading-tight">--</span>
                             <span class="text-[8px] font-bold uppercase tracking-[0.18em] text-slate-400">Min</span>
                         </div>
-                        <div class="rounded-xl bg-white border border-gala-gold/30 py-2 px-1 shadow-xs">
-                            <span id="cd-secs" class="block font-serif text-base sm:text-lg font-extrabold text-gala-sapphire leading-tight">--</span>
+                        <div class="rounded-xl bg-gala-cream border border-gala-gold/35 py-2 px-1">
+                            <span id="cd-secs" class="block font-serif text-base sm:text-lg font-extrabold text-gala-midnight leading-tight">--</span>
                             <span class="text-[8px] font-bold uppercase tracking-[0.18em] text-slate-400">Seg</span>
                         </div>
                     </div>
 
-                    <button onclick="abrirModalCalendario()" class="btn-royal-gala w-full md:w-auto md:flex-1 py-3.5 px-5 rounded-xl font-bold text-[11px] uppercase tracking-[0.2em] flex items-center justify-center gap-2.5 cursor-pointer">
-                        <i class="fa-regular fa-calendar-plus text-sm text-gala-goldBright"></i>
-                        <span>Agendar Fecha</span>
-                    </button>
+                    <div class="grid grid-cols-2 gap-2.5 w-full md:flex-1">
+                        <button onclick="abrirModalItinerario()" class="btn-champagne py-3.5 px-3 sm:px-4 rounded-xl font-extrabold text-[10px] sm:text-[11px] uppercase tracking-[0.16em] flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-clock-rotate-left text-xs"></i>
+                            <span>Ver Itinerario</span>
+                        </button>
+
+                        <button onclick="abrirModalCalendario()" class="btn-midnight py-3.5 px-3 sm:px-4 rounded-xl font-bold text-[10px] sm:text-[11px] uppercase tracking-[0.16em] flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-regular fa-calendar-plus text-xs text-gala-goldLight"></i>
+                            <span>Agendar</span>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- =====================================================
-                     SECCIÓN INTERACTIVA: GENERADOR DE AMIGO SECRETO
+                     GENERADOR DE AMIGO SECRETO (CÓDIGO NUMÉRICO)
                      ===================================================== -->
-                <section aria-labelledby="titulo-amigo-secreto" class="reveal d-4 secret-santa-box rounded-[24px] p-5 sm:p-7 text-white text-center relative overflow-hidden mb-6">
+                <section aria-labelledby="titulo-amigo-secreto" class="reveal d-4 secret-vault rounded-[26px] p-5 sm:p-8 text-white text-center relative overflow-hidden mb-6">
 
-                    <!-- Encabezado de Amigo Secreto -->
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-gala-goldBright/40 mb-2.5">
-                        <i class="fa-solid fa-gift text-gala-goldBright text-xs"></i>
-                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.3em] text-gala-goldBright">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-gala-goldLight/40 mb-2.5">
+                        <i class="fa-solid fa-gift text-gala-goldLight text-xs"></i>
+                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.3em] text-gala-goldLight">
                             Intercambio Navideño
                         </span>
                     </div>
 
-                    <h2 id="titulo-amigo-secreto" class="font-serif text-xl sm:text-2xl font-extrabold tracking-[0.06em] gold-foil-text">
+                    <h2 id="titulo-amigo-secreto" class="font-serif text-xl sm:text-2xl font-extrabold tracking-[0.06em] gold-foil">
                         AMIGO SECRETO 2026
                     </h2>
 
-                    <p class="font-editorial italic text-base sm:text-lg text-sky-100/90 max-w-md mx-auto mt-1 mb-5">
-                        Ingresa tu código personal secreto para descubrir a quién sorprenderás esta Navidad.
+                    <p class="font-editorial italic text-base sm:text-lg text-amber-100/90 max-w-md mx-auto mt-1 mb-5">
+                        Ingresa tu código numérico personal de 4 dígitos para descubrir a quién sorprenderás en nuestra Cena Navideña.
                     </p>
 
-                    <!-- Estado 1: Formulario de Código -->
+                    <!-- Estado 1: Ingreso de Código Numérico -->
                     <div id="vista-codigo" class="max-w-md mx-auto">
                         <div class="flex flex-col sm:flex-row gap-2.5">
                             <div class="relative flex-1">
-                                <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-gala-goldBright/80">
-                                    <i class="fa-solid fa-key text-xs"></i>
+                                <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-gala-goldLight/80">
+                                    <i class="fa-solid fa-hashtag text-xs"></i>
                                 </span>
                                 <input
                                     id="input-codigo"
-                                    type="text"
-                                    maxlength="12"
-                                    placeholder="Ej. NAV-4821"
+                                    type="tel"
+                                    inputmode="numeric"
+                                    pattern="[0-9]*"
+                                    maxlength="6"
+                                    placeholder="Código de 4 dígitos"
                                     autocomplete="off"
                                     onkeydown="if(event.key==='Enter') revelarAmigoSecreto()"
-                                    class="w-full pl-9 pr-4 py-3.5 rounded-xl bg-white/10 border border-gala-goldBright/50 text-white placeholder-sky-200/50 text-center sm:text-left font-bold uppercase tracking-[0.22em] text-sm focus:outline-none focus:border-gala-goldBright focus:bg-white/15 transition"
+                                    class="w-full pl-9 pr-4 py-3.5 rounded-xl bg-white/10 border border-gala-goldLight/50 text-white placeholder-amber-100/45 text-center sm:text-left font-extrabold tracking-[0.3em] text-base focus:outline-none focus:border-gala-goldLight focus:bg-white/15 transition"
                                 >
                             </div>
-                            <button onclick="revelarAmigoSecreto()" class="btn-gold-reveal py-3.5 px-6 rounded-xl font-extrabold text-[11px] uppercase tracking-[0.2em] flex items-center justify-center gap-2 shrink-0 cursor-pointer">
+                            <button onclick="revelarAmigoSecreto()" class="btn-champagne py-3.5 px-6 rounded-xl font-extrabold text-[11px] uppercase tracking-[0.2em] flex items-center justify-center gap-2 shrink-0 cursor-pointer">
                                 <i class="fa-solid fa-wand-magic-sparkles"></i>
                                 <span>Descubrir</span>
                             </button>
                         </div>
 
                         <p id="error-codigo" class="hidden text-xs font-semibold text-amber-300 mt-2.5">
-                            <i class="fa-solid fa-circle-exclamation mr-1"></i> Código no reconocido. Verifica tu clave personal e inténtalo de nuevo.
+                            <i class="fa-solid fa-circle-exclamation mr-1"></i> Código no válido. Ingresa únicamente los 4 números asignados.
                         </p>
                     </div>
 
-                    <!-- Estado 1.5: Simulación de Sorteo en Vivo -->
+                    <!-- Estado 1.5: Simulación de Tómbola en Vivo -->
                     <div id="vista-sorteando" class="hidden max-w-md mx-auto">
-                        <div class="rounded-2xl bg-white/[0.08] border border-gala-goldBright/60 p-6 backdrop-blur-md">
-                            <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-gala-goldBright/20 border border-gala-goldBright flex items-center justify-center text-gala-goldBright">
+                        <div class="rounded-2xl bg-white/[0.08] border border-gala-goldLight/60 p-6 backdrop-blur-md">
+                            <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-gala-goldLight/20 border border-gala-goldLight flex items-center justify-center text-gala-goldLight">
                                 <i class="fa-solid fa-shuffle fa-spin text-lg"></i>
                             </div>
-                            <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-gala-goldBright mb-1">
+                            <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-gala-goldLight mb-1">
                                 Generando Amigo Secreto...
                             </p>
-                            <p class="font-editorial italic text-base text-sky-100/85 mb-3">
+                            <p class="font-editorial italic text-base text-amber-100/85 mb-3">
                                 Mezclando nombres en la tómbola navideña
                             </p>
-                            <div class="py-3 px-4 rounded-xl bg-gala-sapphire/90 border border-gala-goldBright/50 shadow-inner">
+                            <div class="py-3 px-4 rounded-xl bg-gala-obsidian/90 border border-gala-goldLight/50 shadow-inner">
                                 <span id="ruleta-nombre" class="font-serif text-base sm:text-lg font-bold tracking-wider text-amber-100 block">
                                     SORTEANDO...
                                 </span>
@@ -496,32 +516,32 @@
 
                     <!-- Estado 2: Resultado Revelado -->
                     <div id="vista-resultado" class="hidden gift-reveal-anim max-w-md mx-auto">
-                        <div class="rounded-2xl bg-white/[0.08] border border-gala-goldBright/50 p-5 backdrop-blur-md">
-                            <p class="text-[10px] font-bold uppercase tracking-[0.28em] text-gala-glacier mb-1">
+                        <div class="rounded-2xl bg-white/[0.08] border border-gala-goldLight/50 p-5 backdrop-blur-md">
+                            <p class="text-[10px] font-bold uppercase tracking-[0.28em] text-gala-champagne mb-1">
                                 Hola, <span id="res-participante" class="text-white"></span>
                             </p>
                             <p class="font-editorial italic text-lg text-amber-100/90 mb-2">
                                 Tu Amigo Secreto esta Navidad es:
                             </p>
-                            <div class="py-3 px-4 rounded-xl bg-gala-sapphire/80 border border-gala-goldBright shadow-inner my-2">
-                                <span id="res-amigo-secreto" class="font-serif text-lg sm:text-xl font-extrabold tracking-wide gold-foil-text block">
+                            <div class="py-3.5 px-4 rounded-xl bg-gala-obsidian/85 border border-gala-goldLight shadow-inner my-2">
+                                <span id="res-amigo-secreto" class="font-serif text-lg sm:text-xl font-extrabold tracking-wide gold-foil block">
                                     ---
                                 </span>
                             </div>
-                            <p class="text-[11px] text-sky-200/80 mt-2">
-                                <i class="fa-solid fa-lock text-gala-goldBright mr-1"></i> Guarda este secreto hasta la noche de gala.
+                            <p class="text-[11px] text-amber-100/80 mt-2">
+                                <i class="fa-solid fa-lock text-gala-goldLight mr-1"></i> Guarda este secreto hasta la Cena Navideña.
                             </p>
                         </div>
 
-                        <button onclick="ocultarResultado()" class="mt-3.5 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.24em] text-gala-goldBright/85 hover:text-gala-goldBright transition cursor-pointer">
+                        <button onclick="ocultarResultado()" class="mt-3.5 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.24em] text-gala-goldLight/85 hover:text-gala-goldLight transition cursor-pointer">
                             <i class="fa-solid fa-eye-slash"></i>
                             <span>Ocultar pantalla</span>
                         </button>
                     </div>
 
-                    <!-- Acceso Discreto al Panel de Códigos para Coordinación -->
+                    <!-- Acceso Discreto a Coordinación -->
                     <div class="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-center">
-                        <button onclick="abrirModalOrganizador()" class="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-sky-200/65 hover:text-gala-goldBright transition cursor-pointer">
+                        <button onclick="abrirModalOrganizador()" class="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-amber-100/60 hover:text-gala-goldLight transition cursor-pointer">
                             <i class="fa-solid fa-shield-halved text-[10px]"></i>
                             <span>Panel de Códigos (Coordinación)</span>
                         </button>
@@ -533,7 +553,7 @@
                 <footer class="reveal d-4 pt-3 border-t border-gala-gold/30 flex items-center justify-center md:justify-end">
                     <div class="inline-flex items-center gap-2">
                         <span class="w-1.5 h-1.5 rounded-full bg-gala-gold"></span>
-                        <p class="font-serif font-bold text-sm sm:text-base tracking-[0.28em] text-gala-sapphire">
+                        <p class="font-serif font-bold text-sm sm:text-base tracking-[0.28em] text-gala-midnight">
                             UTPL
                         </p>
                     </div>
@@ -544,25 +564,131 @@
     </main>
 
     <!-- =========================================================
+         MODAL DE ITINERARIO COMPLETO (VIERNES 11 Y SÁBADO 12)
+         ========================================================= -->
+    <div id="itinerary-modal" class="modal-backdrop fixed inset-0 z-50 bg-gala-obsidian/85 backdrop-blur-md flex items-center justify-center p-4" onclick="cerrarModalItinerario()">
+        <div class="modal-card relative w-full max-w-lg rounded-3xl bg-gala-cream border-2 border-gala-gold p-6 sm:p-8 shadow-2xl text-gala-ink max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+
+            <button onclick="cerrarModalItinerario()" aria-label="Cerrar Itinerario" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-gala-midnight/10 hover:bg-gala-midnight/20 flex items-center justify-center text-gala-midnight transition cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <span class="text-[10px] font-bold uppercase tracking-[0.32em] text-gala-goldDark">
+                    Santo Domingo • Diciembre 2026
+                </span>
+                <h3 class="font-serif text-2xl font-extrabold text-gala-midnight mt-1">
+                    Itinerario Oficial
+                </h3>
+                <p class="font-editorial italic text-base text-slate-600 mt-0.5">
+                    Cronograma de actividades y encuentro navideño
+                </p>
+            </div>
+
+            <!-- DÍA 1: VIERNES 11 DE DICIEMBRE -->
+            <div class="mb-6">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gala-midnight text-gala-goldLight text-[10px] font-bold uppercase tracking-[0.24em] mb-4">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>Viernes 11 de Diciembre</span>
+                </div>
+
+                <div class="relative pl-6 border-l-2 border-gala-gold/50 space-y-5 text-left">
+                    <!-- Hito 1: 12:00 -->
+                    <div class="relative">
+                        <span class="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-gala-gold border-2 border-gala-cream"></span>
+                        <span class="text-xs font-extrabold text-gala-goldDark tracking-wider">12:00</span>
+                        <h4 class="text-sm font-extrabold text-gala-midnight">Arribo a Santo Domingo</h4>
+                        <p class="text-xs text-slate-600 mt-0.5">
+                            Recepción y encuentro de los funcionarios de los distintos centros universitarios.
+                        </p>
+                    </div>
+
+                    <!-- Hito 2: 13:00 -->
+                    <div class="relative">
+                        <span class="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-gala-gold border-2 border-gala-cream"></span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-extrabold text-gala-goldDark tracking-wider">13:00</span>
+                            <span class="px-2 py-0.5 rounded bg-amber-100 text-gala-goldDark text-[9px] font-bold uppercase tracking-wider">
+                                Vestimenta Informal
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-extrabold text-gala-midnight mt-0.5">Almuerzo de Bienvenida</h4>
+                        <p class="text-xs text-slate-600 mt-0.5">
+                            Almuerzo relajado e informal tal como llegan de viaje, para compartir antes del descanso.
+                        </p>
+                    </div>
+
+                    <!-- Hito 3: Tarde -->
+                    <div class="relative">
+                        <span class="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-gala-gold border-2 border-gala-cream"></span>
+                        <span class="text-xs font-extrabold text-gala-goldDark tracking-wider">Tarde</span>
+                        <h4 class="text-sm font-extrabold text-gala-midnight">Registro en el Hotel</h4>
+                        <p class="text-xs text-slate-600 mt-0.5">
+                            Check-in, asignación de habitaciones y tiempo libre para prepararse para la gala.
+                        </p>
+                    </div>
+
+                    <!-- Hito 4: 20:00 -->
+                    <div class="relative rounded-2xl bg-gala-midnight text-white p-4 border border-gala-gold shadow-md">
+                        <span class="absolute -left-[31px] top-4 w-3.5 h-3.5 rounded-full bg-gala-midnight border-2 border-gala-goldLight"></span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-extrabold text-gala-goldLight tracking-wider">20:00</span>
+                            <span class="px-2 py-0.5 rounded bg-gala-goldLight/20 text-gala-goldLight text-[9px] font-bold uppercase tracking-wider">
+                                Gala Elegante
+                            </span>
+                        </div>
+                        <h4 class="font-serif text-base font-bold text-gala-goldLight mt-1">
+                            Cena Navideña & Amigo Secreto
+                        </h4>
+                        <p class="text-xs text-amber-100/85 mt-1">
+                            Brindis institucional, cena especial de Navidad e intercambio oficial de regalos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DÍA 2: SÁBADO 12 DE DICIEMBRE -->
+            <div>
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-100 text-gala-goldDark text-[10px] font-bold uppercase tracking-[0.24em] mb-3">
+                    <i class="fa-regular fa-sun"></i>
+                    <span>Sábado 12 de Diciembre</span>
+                </div>
+
+                <div class="relative pl-6 border-l-2 border-gala-gold/50 text-left">
+                    <div class="relative">
+                        <span class="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-gala-midnight border-2 border-gala-gold"></span>
+                        <span class="text-xs font-extrabold text-gala-goldDark tracking-wider">10:00</span>
+                        <h4 class="text-sm font-extrabold text-gala-midnight">Retorno a Ciudades de Origen</h4>
+                        <p class="text-xs text-slate-600 mt-0.5">
+                            Check-out del hotel y salida de retorno hacia cada centro universitario.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- =========================================================
          MODAL PANEL ORGANIZADOR (CÓDIGOS DE FUNCIONARIOS)
          ========================================================= -->
-    <div id="admin-modal" class="modal-backdrop fixed inset-0 z-50 bg-gala-sapphire/85 backdrop-blur-md flex items-center justify-center p-4" onclick="cerrarModalOrganizador()">
-        <div class="modal-card relative w-full max-w-2xl rounded-3xl bg-gala-porcelain border-2 border-gala-gold p-5 sm:p-7 shadow-2xl text-gala-ink max-h-[88vh] flex flex-col" onclick="event.stopPropagation()">
+    <div id="admin-modal" class="modal-backdrop fixed inset-0 z-50 bg-gala-obsidian/85 backdrop-blur-md flex items-center justify-center p-4" onclick="cerrarModalOrganizador()">
+        <div class="modal-card relative w-full max-w-2xl rounded-3xl bg-gala-cream border-2 border-gala-gold p-5 sm:p-7 shadow-2xl text-gala-ink max-h-[88vh] flex flex-col" onclick="event.stopPropagation()">
 
-            <button onclick="cerrarModalOrganizador()" aria-label="Cerrar" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-gala-sapphire/10 hover:bg-gala-sapphire/20 flex items-center justify-center text-gala-sapphire transition cursor-pointer">
+            <button onclick="cerrarModalOrganizador()" aria-label="Cerrar" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-gala-midnight/10 hover:bg-gala-midnight/20 flex items-center justify-center text-gala-midnight transition cursor-pointer">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
             <div class="text-center mb-4 shrink-0">
-                <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-gala-goldDeep">
+                <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-gala-goldDark">
                     Coordinación Navidad UTPL • 14 Participantes
                 </span>
-                <h3 class="font-serif text-lg sm:text-xl font-bold text-gala-sapphire mt-1">
-                    Códigos de Acceso — Amigo Secreto
+                <h3 class="font-serif text-lg sm:text-xl font-bold text-gala-midnight mt-1">
+                    Códigos Numéricos — Amigo Secreto
                 </h3>
             </div>
 
-            <!-- Paso 1: Clave de Coordinación -->
+            <!-- Paso 1: Clave de Coordinación (Sin pistas visibles) -->
             <div id="admin-login" class="py-4 text-center max-w-sm mx-auto w-full">
                 <p class="text-xs text-slate-600 mb-3">
                     Ingresa la clave de coordinación para consultar y distribuir los códigos individuales:
@@ -571,11 +697,11 @@
                     <input
                         id="input-admin-pass"
                         type="password"
-                        placeholder="Clave de coordinación"
+                        placeholder="Clave de acceso"
                         onkeydown="if(event.key==='Enter') verificarAdmin()"
-                        class="flex-1 px-4 py-2.5 rounded-xl bg-white border border-gala-gold/50 text-sm font-semibold text-gala-sapphire focus:outline-none focus:border-gala-sapphire"
+                        class="flex-1 px-4 py-2.5 rounded-xl bg-white border border-gala-gold/50 text-sm font-semibold text-gala-midnight focus:outline-none focus:border-gala-midnight"
                     >
-                    <button onclick="verificarAdmin()" class="px-5 py-2.5 rounded-xl bg-gala-sapphire text-gala-goldBright font-bold text-xs uppercase tracking-wider cursor-pointer">
+                    <button onclick="verificarAdmin()" class="px-5 py-2.5 rounded-xl bg-gala-midnight text-gala-goldLight font-bold text-xs uppercase tracking-wider cursor-pointer">
                         Entrar
                     </button>
                 </div>
@@ -591,17 +717,12 @@
                         id="buscador-funcionarios"
                         type="text"
                         oninput="renderizarTablaCodigos()"
-                        placeholder="Buscar funcionario..."
-                        class="w-full sm:w-64 px-3.5 py-2 rounded-xl bg-white border border-gala-gold/40 text-xs font-medium text-gala-sapphire focus:outline-none"
+                        placeholder="Buscar funcionario o código..."
+                        class="w-full sm:w-64 px-3.5 py-2 rounded-xl bg-white border border-gala-gold/40 text-xs font-medium text-gala-midnight focus:outline-none"
                     >
-                    <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
-                        <button onclick="reSortearConConfirmacion()" class="px-3.5 py-2 rounded-xl bg-amber-100 hover:bg-amber-200/80 text-gala-goldDeep font-bold text-[10px] uppercase tracking-wider transition cursor-pointer">
-                            <i class="fa-solid fa-shuffle mr-1"></i> Nuevo Sorteo
-                        </button>
-                        <button onclick="copiarTodosLosCodigos()" class="px-3.5 py-2 rounded-xl bg-gala-sapphire text-gala-goldBright font-bold text-[10px] uppercase tracking-wider transition cursor-pointer">
-                            <i class="fa-regular fa-copy mr-1"></i> Copiar Lista
-                        </button>
-                    </div>
+                    <button onclick="copiarTodosLosCodigos()" class="w-full sm:w-auto px-4 py-2 rounded-xl bg-gala-midnight text-gala-goldLight font-bold text-[10px] uppercase tracking-wider transition cursor-pointer">
+                        <i class="fa-regular fa-copy mr-1"></i> Copiar Todos los Códigos
+                    </button>
                 </div>
 
                 <div class="overflow-y-auto rounded-2xl border border-gala-gold/35 bg-white divide-y divide-slate-100 flex-1" id="lista-codigos-body">
@@ -615,69 +736,69 @@
     <!-- =========================================================
          MODAL SELECTOR UNIVERSAL DE CALENDARIO
          ========================================================= -->
-    <div id="calendar-modal" class="modal-backdrop fixed inset-0 z-50 bg-gala-sapphire/80 backdrop-blur-md flex items-center justify-center p-4" onclick="cerrarModalCalendario()">
-        <div class="modal-card relative w-full max-w-md rounded-3xl bg-gala-porcelain border-2 border-gala-gold p-6 sm:p-8 shadow-2xl text-gala-ink" onclick="event.stopPropagation()">
+    <div id="calendar-modal" class="modal-backdrop fixed inset-0 z-50 bg-gala-obsidian/85 backdrop-blur-md flex items-center justify-center p-4" onclick="cerrarModalCalendario()">
+        <div class="modal-card relative w-full max-w-md rounded-3xl bg-gala-cream border-2 border-gala-gold p-6 sm:p-8 shadow-2xl text-gala-ink" onclick="event.stopPropagation()">
             
-            <button onclick="cerrarModalCalendario()" aria-label="Cerrar" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-gala-sapphire/10 hover:bg-gala-sapphire/20 flex items-center justify-center text-gala-sapphire transition cursor-pointer">
+            <button onclick="cerrarModalCalendario()" aria-label="Cerrar" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-gala-midnight/10 hover:bg-gala-midnight/20 flex items-center justify-center text-gala-midnight transition cursor-pointer">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
             <div class="text-center mb-6">
-                <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-gala-goldDeep">
-                    Viernes 11 de Diciembre • 20:00 • Santo Domingo
+                <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-gala-goldDark">
+                    Viernes 11 de Diciembre • Santo Domingo
                 </span>
-                <h3 class="font-serif text-xl sm:text-2xl font-bold text-gala-sapphire mt-1.5">
+                <h3 class="font-serif text-xl sm:text-2xl font-bold text-gala-midnight mt-1.5">
                     Guardar en Calendario
                 </h3>
             </div>
 
             <div class="space-y-3">
-                <a id="link-google-cal" href="#" target="_blank" rel="noopener noreferrer" onclick="mostrarAviso('Abriendo Google Calendar...')" class="flex items-center justify-between p-4 rounded-2xl bg-white hover:bg-sky-50/70 border border-gala-gold/35 shadow-sm transition">
+                <a id="link-google-cal" href="#" target="_blank" rel="noopener noreferrer" onclick="mostrarAviso('Abriendo Google Calendar...')" class="flex items-center justify-between p-4 rounded-2xl bg-white hover:bg-amber-50/60 border border-gala-gold/35 shadow-sm transition">
                     <div class="flex items-center gap-3.5">
-                        <div class="w-10 h-10 rounded-xl bg-gala-sapphire text-gala-goldBright flex items-center justify-center text-lg">
+                        <div class="w-10 h-10 rounded-xl bg-gala-midnight text-gala-goldLight flex items-center justify-center text-lg">
                             <i class="fa-brands fa-google"></i>
                         </div>
                         <div class="text-left">
-                            <div class="text-sm font-bold text-gala-sapphire">Google Calendar</div>
+                            <div class="text-sm font-bold text-gala-midnight">Google Calendar</div>
                             <div class="text-[11px] text-slate-500">Android y cuenta Google</div>
                         </div>
                     </div>
                     <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gala-gold"></i>
                 </a>
 
-                <button onclick="descargarICS('Apple Calendar')" class="w-full flex items-center justify-between p-4 rounded-2xl bg-white hover:bg-sky-50/70 border border-gala-gold/35 shadow-sm transition cursor-pointer">
+                <button onclick="descargarICS('Apple Calendar')" class="w-full flex items-center justify-between p-4 rounded-2xl bg-white hover:bg-amber-50/60 border border-gala-gold/35 shadow-sm transition cursor-pointer">
                     <div class="flex items-center gap-3.5">
                         <div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center text-xl">
                             <i class="fa-brands fa-apple"></i>
                         </div>
                         <div class="text-left">
-                            <div class="text-sm font-bold text-gala-sapphire">Apple Calendar</div>
+                            <div class="text-sm font-bold text-gala-midnight">Apple Calendar</div>
                             <div class="text-[11px] text-slate-500">iPhone, iPad y Mac</div>
                         </div>
                     </div>
                     <i class="fa-solid fa-download text-xs text-gala-gold"></i>
                 </button>
 
-                <a id="link-outlook-web" href="#" target="_blank" rel="noopener noreferrer" onclick="mostrarAviso('Abriendo Outlook...')" class="flex items-center justify-between p-4 rounded-2xl bg-white hover:bg-sky-50/70 border border-gala-gold/35 shadow-sm transition">
+                <a id="link-outlook-web" href="#" target="_blank" rel="noopener noreferrer" onclick="mostrarAviso('Abriendo Outlook...')" class="flex items-center justify-between p-4 rounded-2xl bg-white hover:bg-amber-50/60 border border-gala-gold/35 shadow-sm transition">
                     <div class="flex items-center gap-3.5">
                         <div class="w-10 h-10 rounded-xl bg-sky-700 text-white flex items-center justify-center text-lg">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
                         <div class="text-left">
-                            <div class="text-sm font-bold text-gala-sapphire">Outlook / Microsoft 365</div>
+                            <div class="text-sm font-bold text-gala-midnight">Outlook / Microsoft 365</div>
                             <div class="text-[11px] text-slate-500">Calendario de correo</div>
                         </div>
                     </div>
                     <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gala-gold"></i>
                 </a>
 
-                <button onclick="descargarICS('Calendario de Escritorio')" class="w-full flex items-center justify-between p-4 rounded-2xl bg-white hover:bg-sky-50/70 border border-gala-gold/35 shadow-sm transition cursor-pointer">
+                <button onclick="descargarICS('Calendario de Escritorio')" class="w-full flex items-center justify-between p-4 rounded-2xl bg-white hover:bg-amber-50/60 border border-gala-gold/35 shadow-sm transition cursor-pointer">
                     <div class="flex items-center gap-3.5">
-                        <div class="w-10 h-10 rounded-xl bg-gala-goldBright text-gala-sapphire flex items-center justify-center text-lg">
+                        <div class="w-10 h-10 rounded-xl bg-gala-goldLight text-gala-midnight flex items-center justify-center text-lg">
                             <i class="fa-solid fa-calendar-day"></i>
                         </div>
                         <div class="text-left">
-                            <div class="text-sm font-bold text-gala-sapphire">Archivo de Calendario (.ics)</div>
+                            <div class="text-sm font-bold text-gala-midnight">Archivo de Calendario (.ics)</div>
                             <div class="text-[11px] text-slate-500">Outlook escritorio y otras apps</div>
                         </div>
                     </div>
@@ -688,104 +809,37 @@
     </div>
 
     <!-- Aviso Toast -->
-    <div id="toast-msg" class="toast-msg fixed bottom-6 left-1/2 z-50 bg-gala-sapphire text-white px-6 py-3.5 rounded-2xl shadow-2xl border border-gala-goldBright flex items-center gap-3 max-w-[92vw]">
-        <i class="fa-solid fa-circle-check text-gala-goldBright text-lg"></i>
-        <span id="toast-text" class="text-xs sm:text-sm font-semibold">Fecha guardada en tu calendario</span>
+    <div id="toast-msg" class="toast-msg fixed bottom-6 left-1/2 z-50 bg-gala-midnight text-white px-6 py-3.5 rounded-2xl shadow-2xl border border-gala-goldLight flex items-center gap-3 max-w-[92vw]">
+        <i class="fa-solid fa-circle-check text-gala-goldLight text-lg"></i>
+        <span id="toast-text" class="text-xs sm:text-sm font-semibold">Listo</span>
     </div>
 
     <script>
         // =========================================================
-        // 0. SORTEO ALEATORIO OFICIAL SINCRONIZADO (14 FUNCIONARIOS)
+        // 0. SORTEO OFICIAL CON MISMO ORDEN Y NUEVOS CÓDIGOS NUMÉRICOS
         // =========================================================
-        const SORTEO_BASE = [
-            { codigo: "NAV-4192", dador: "OREJUELA INTRIAGO NANCY GISELA", receptor: "GAONA SANCHEZ JULIANA" },
-            { codigo: "NAV-7538", dador: "ARRIAGA MUÑOZ LENNY NORAIDA", receptor: "MOREIRA ESCALANTE EFRÉN ARTURO" },
-            { codigo: "NAV-6084", dador: "MOREIRA ESCALANTE EFRÉN ARTURO", receptor: "ROJAS DELGADO KARINA CECIBEL" },
-            { codigo: "NAV-2849", dador: "FEIJOO MOREIRA TITO ELIECER", receptor: "VERA VALDEZ SANTOS NESTOR" },
-            { codigo: "NAV-9165", dador: "EDYN MEZA CÁRDENAS", receptor: "ANDRADE MORA OSCAR ALEXANDER" },
-            { codigo: "NAV-3470", dador: "CASTILLO BERMUDEZ TANIA ELIZABETH", receptor: "ORTONEDA VELASQUEZ MARIA DOLORES" },
-            { codigo: "NAV-8251", dador: "ROJAS DELGADO KARINA CECIBEL", receptor: "MEDRANDA VERA GEOVANNY ALEJANDRO" },
-            { codigo: "NAV-5703", dador: "ANDRADE MORA OSCAR ALEXANDER", receptor: "SAMBRANO ANDRADE TANNYA MARIBEL" },
-            { codigo: "NAV-1926", dador: "SAMBRANO ANDRADE TANNYA MARIBEL", receptor: "CASTILLO BERMUDEZ TANIA ELIZABETH" },
-            { codigo: "NAV-6647", dador: "GAONA SANCHEZ JULIANA", receptor: "ALCIVAR ALVAREZ XIMENA MARIBEL" },
-            { codigo: "NAV-8914", dador: "MEDRANDA VERA GEOVANNY ALEJANDRO", receptor: "ARRIAGA MUÑOZ LENNY NORAIDA" },
-            { codigo: "NAV-4380", dador: "VERA VALDEZ SANTOS NESTOR", receptor: "OREJUELA INTRIAGO NANCY GISELA" },
-            { codigo: "NAV-7025", dador: "ALCIVAR ALVAREZ XIMENA MARIBEL", receptor: "EDYN MEZA CÁRDENAS" },
-            { codigo: "NAV-2598", dador: "ORTONEDA VELASQUEZ MARIA DOLORES", receptor: "FEIJOO MOREIRA TITO ELIECER" }
+        const URL_OFICIAL_PAGINA = "https://agency-tf.github.io/navidad/";
+
+        const SORTEO_OFICIAL = [
+            { codigo: "7394", dador: "OREJUELA INTRIAGO NANCY GISELA", receptor: "GAONA SANCHEZ JULIANA" },
+            { codigo: "2815", dador: "ARRIAGA MUÑOZ LENNY NORAIDA", receptor: "MOREIRA ESCALANTE EFRÉN ARTURO" },
+            { codigo: "6409", dador: "MOREIRA ESCALANTE EFRÉN ARTURO", receptor: "ROJAS DELGADO KARINA CECIBEL" },
+            { codigo: "9152", dador: "FEIJOO MOREIRA TITO ELIECER", receptor: "VERA VALDEZ SANTOS NESTOR" },
+            { codigo: "3681", dador: "EDYN MEZA CÁRDENAS", receptor: "ANDRADE MORA OSCAR ALEXANDER" },
+            { codigo: "8520", dador: "CASTILLO BERMUDEZ TANIA ELIZABETH", receptor: "ORTONEDA VELASQUEZ MARIA DOLORES" },
+            { codigo: "4937", dador: "ROJAS DELGADO KARINA CECIBEL", receptor: "MEDRANDA VERA GEOVANNY ALEJANDRO" },
+            { codigo: "1746", dador: "ANDRADE MORA OSCAR ALEXANDER", receptor: "SAMBRANO ANDRADE TANNYA MARIBEL" },
+            { codigo: "5293", dador: "SAMBRANO ANDRADE TANNYA MARIBEL", receptor: "CASTILLO BERMUDEZ TANIA ELIZABETH" },
+            { codigo: "9864", dador: "GAONA SANCHEZ JULIANA", receptor: "ALCIVAR ALVAREZ XIMENA MARIBEL" },
+            { codigo: "3178", dador: "MEDRANDA VERA GEOVANNY ALEJANDRO", receptor: "ARRIAGA MUÑOZ LENNY NORAIDA" },
+            { codigo: "6045", dador: "VERA VALDEZ SANTOS NESTOR", receptor: "OREJUELA INTRIAGO NANCY GISELA" },
+            { codigo: "8412", dador: "ALCIVAR ALVAREZ XIMENA MARIBEL", receptor: "EDYN MEZA CÁRDENAS" },
+            { codigo: "2950", dador: "ORTONEDA VELASQUEZ MARIA DOLORES", receptor: "FEIJOO MOREIRA TITO ELIECER" }
         ];
 
-        const STORAGE_KEY = 'utpl_navidad_2026_sorteo_14_v3';
-        let sorteoActual = [...SORTEO_BASE];
         let intervaloRuleta = null;
 
-        // Cargar sorteo guardado en localStorage si existe
-        function cargarSorteo() {
-            try {
-                const guardado = localStorage.getItem(STORAGE_KEY);
-                if (guardado) {
-                    const parsed = JSON.parse(guardado);
-                    if (Array.isArray(parsed) && parsed.length === SORTEO_BASE.length) {
-                        sorteoActual = parsed;
-                    }
-                }
-            } catch (e) {
-                sorteoActual = [...SORTEO_BASE];
-            }
-        }
-
-        // Generar un ciclo hamiltoniano aleatorio sin auto-asignaciones ni parejas recíprocas
-        function generarNuevoSorteoAleatorio() {
-            const nombres = SORTEO_BASE.map(item => item.dador);
-            let valido = false;
-            let permutacion = [];
-
-            while (!valido) {
-                permutacion = [...nombres];
-                for (let i = permutacion.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [permutacion[i], permutacion[j]] = [permutacion[j], permutacion[i]];
-                }
-
-                // Verificar que formemos un solo ciclo de longitud N (evita tanto auto-regalo como pares mutuos A<->B)
-                valido = true;
-                const visitados = new Set();
-                let actual = 0;
-                for (let step = 0; step < permutacion.length; step++) {
-                    if (visitados.has(actual)) {
-                        valido = false;
-                        break;
-                    }
-                    visitados.add(actual);
-                    const siguienteNombre = permutacion[actual];
-                    actual = nombres.indexOf(siguienteNombre);
-                }
-                if (actual !== 0 || visitados.size !== permutacion.length) {
-                    valido = false;
-                }
-            }
-
-            const codigosUsados = new Set();
-            sorteoActual = nombres.map((dador, idx) => {
-                let nuevoCodigo = '';
-                do {
-                    const num = Math.floor(1000 + Math.random() * 9000);
-                    nuevoCodigo = `NAV-${num}`;
-                } while (codigosUsados.has(nuevoCodigo));
-                codigosUsados.add(nuevoCodigo);
-
-                return {
-                    codigo: nuevoCodigo,
-                    dador: dador,
-                    receptor: permutacion[idx]
-                };
-            });
-
-            try {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(sorteoActual));
-            } catch (e) {}
-        }
-
-        // Revelar Amigo Secreto con animación de tómbola en vivo
+        // Revelar Amigo Secreto con simulación de tómbola en vivo
         function revelarAmigoSecreto() {
             const input = document.getElementById('input-codigo');
             const errorEl = document.getElementById('error-codigo');
@@ -794,8 +848,9 @@
             const vistaResultado = document.getElementById('vista-resultado');
             const ruletaNombre = document.getElementById('ruleta-nombre');
 
-            const codigoIngresado = input.value.trim().toUpperCase().replace(/\s+/g, '');
-            const registro = sorteoActual.find(item => item.codigo.toUpperCase() === codigoIngresado);
+            // Limpiar cualquier espacio o carácter no numérico por si acaso
+            const codigoLimpio = input.value.replace(/\D/g, '').trim();
+            const registro = SORTEO_OFICIAL.find(item => item.codigo === codigoLimpio);
 
             if (!registro) {
                 errorEl.classList.remove('hidden');
@@ -808,7 +863,7 @@
             vistaResultado.classList.add('hidden');
             vistaSorteando.classList.remove('hidden');
 
-            const nombresRuleta = sorteoActual.map(item => item.receptor);
+            const nombresRuleta = SORTEO_OFICIAL.map(item => item.receptor);
             let ticks = 0;
             const maxTicks = 24;
 
@@ -828,8 +883,33 @@
 
                     vistaSorteando.classList.add('hidden');
                     vistaResultado.classList.remove('hidden');
+
+                    // Lanzar destellos de confeti dorado
+                    if (typeof confetti === 'function') {
+                        confetti({
+                            particleCount: 55,
+                            spread: 65,
+                            origin: { y: 0.65 },
+                            colors: ['#EDD294', '#C89B42', '#FFFFFF', '#F8E5B4']
+                        });
+                    }
                 }
             }, 95);
+        }
+
+        function abrirSobreInvitacion() {
+            const overlay = document.getElementById('envelope-overlay');
+            if (overlay) {
+                overlay.classList.add('opened');
+            }
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 40,
+                    spread: 70,
+                    origin: { y: 0.5 },
+                    colors: ['#EDD294', '#C89B42', '#FFF5D6']
+                });
+            }
         }
 
         function ocultarResultado() {
@@ -844,8 +924,16 @@
         }
 
         // =========================================================
-        // PANEL DE COORDINACIÓN (CÓDIGOS)
+        // MODALES: ITINERARIO, COORDINACIÓN Y CALENDARIO
         // =========================================================
+        function abrirModalItinerario() {
+            document.getElementById('itinerary-modal').classList.add('active');
+        }
+
+        function cerrarModalItinerario() {
+            document.getElementById('itinerary-modal').classList.remove('active');
+        }
+
         function abrirModalOrganizador() {
             document.getElementById('admin-modal').classList.add('active');
             document.getElementById('input-admin-pass').focus();
@@ -873,15 +961,15 @@
             const contenedor = document.getElementById('lista-codigos-body');
             const filtro = (document.getElementById('buscador-funcionarios').value || '').trim().toUpperCase();
 
-            const filtrados = sorteoActual.filter(item =>
+            const filtrados = SORTEO_OFICIAL.filter(item =>
                 item.dador.toUpperCase().includes(filtro) ||
-                item.codigo.toUpperCase().includes(filtro)
+                item.codigo.includes(filtro)
             );
 
             if (filtrados.length === 0) {
                 contenedor.innerHTML = `
                     <div class="p-6 text-center text-xs text-slate-400">
-                        No se encontraron funcionarios con ese criterio.
+                        No se encontraron coincidencias.
                     </div>
                 `;
                 return;
@@ -890,16 +978,16 @@
             contenedor.innerHTML = filtrados.map((item, index) => `
                 <div class="flex items-center justify-between gap-3 px-4 py-3 hover:bg-amber-50/50 transition text-left">
                     <div class="min-w-0">
-                        <p class="text-xs font-bold text-gala-sapphire truncate">
+                        <p class="text-xs font-bold text-gala-midnight truncate">
                             ${index + 1}. ${item.dador}
                         </p>
-                        <p class="text-[11px] font-mono font-bold text-gala-goldDeep mt-0.5">
-                            Código: <span class="bg-amber-100/80 px-2 py-0.5 rounded text-gala-sapphire">${item.codigo}</span>
+                        <p class="text-[11px] font-mono font-bold text-gala-goldDark mt-0.5">
+                            Código numérico: <span class="bg-amber-100/90 px-2.5 py-0.5 rounded text-gala-midnight tracking-widest">${item.codigo}</span>
                         </p>
                     </div>
                     <button
                         onclick="copiarInvitacionIndividual('${item.dador}', '${item.codigo}')"
-                        class="shrink-0 px-3 py-1.5 rounded-lg bg-gala-sapphire/10 hover:bg-gala-sapphire hover:text-gala-goldBright text-gala-sapphire text-[10px] font-bold uppercase tracking-wider transition cursor-pointer"
+                        class="shrink-0 px-3 py-1.5 rounded-lg bg-gala-midnight/10 hover:bg-gala-midnight hover:text-gala-goldLight text-gala-midnight text-[10px] font-bold uppercase tracking-wider transition cursor-pointer"
                     >
                         <i class="fa-regular fa-copy mr-1"></i> Copiar
                     </button>
@@ -936,71 +1024,64 @@
         }
 
         function copiarInvitacionIndividual(nombre, codigo) {
-            const msg = `🎄 ¡Hola ${nombre}! Ya está listo el sorteo de Amigo Secreto Navidad UTPL 2026 (Viernes 11 de Diciembre, 20:00 en Santo Domingo). Tu código secreto personal es: *${codigo}*`;
-            copiarTextoPortapapeles(msg, `Código de ${nombre} copiado`);
+            const msg = [
+                `✨ *INVITACIÓN OFICIAL — CENA NAVIDEÑA UTPL* 🎄`,
+                ``,
+                `¡Hola, *${nombre}*! 🌟`,
+                `Nos emociona compartir contigo nuestra celebración navideña este *viernes 11 de diciembre* en *Santo Domingo*.`,
+                ``,
+                `🎁 *TU CÓDIGO DE AMIGO SECRETO:*`,
+                `🔑 *${codigo}*`,
+                ``,
+                `👉 *Ingresa aquí para abrir tu invitación, ver el itinerario y descubrir a quién sorprenderás:*`,
+                `${URL_OFICIAL_PAGINA}`,
+                ``,
+                `_(Guarda tu código en secreto hasta la noche de gala ✨)_`
+            ].join('\n');
+            copiarTextoPortapapeles(msg, `Mensaje de ${nombre} listo para WhatsApp`);
         }
 
         function copiarTodosLosCodigos() {
-            const lineas = sorteoActual.map((item, i) => `${i + 1}. ${item.dador} -> ${item.codigo}`).join('\n');
-            const textoCompleto = `CÓDIGOS AMIGO SECRETO UTPL 2026:\n\n${lineas}`;
-            copiarTextoPortapapeles(textoCompleto, 'Lista completa de códigos copiada');
-        }
-
-        function reSortearConConfirmacion() {
-            generarNuevoSorteoAleatorio();
-            renderizarTablaCodigos();
-            mostrarAviso('Nuevo sorteo circular generado sin parejas mutuas');
+            const lineas = SORTEO_OFICIAL.map((item, i) => `${i + 1}. *${item.dador}* ➔ 🔑 *${item.codigo}*`).join('\n');
+            const textoCompleto = [
+                `🎄 *CÓDIGOS AMIGO SECRETO — CENA NAVIDEÑA UTPL* ✨`,
+                `🔗 *Enlace de la invitación:* ${URL_OFICIAL_PAGINA}`,
+                ``,
+                `${lineas}`
+            ].join('\n');
+            copiarTextoPortapapeles(textoCompleto, 'Lista elegante copiada');
         }
 
         // =========================================================
-        // 1. NIEVE CRISTALINA CON COPOS GEOMÉTRICOS Y DESTELLOS DORADOS
+        // PARTÍCULAS DORADAS AMBIENTALES
         // =========================================================
-        function iniciarNieve() {
-            const canvas = document.getElementById('snow-canvas');
+        function iniciarAmbiente() {
+            const canvas = document.getElementById('ambient-canvas');
             const ctx = canvas.getContext('2d');
             let width = 0;
             let height = 0;
-            let copos = [];
+            let particulas = [];
 
             function redimensionar() {
                 width = canvas.width = window.innerWidth;
                 height = canvas.height = window.innerHeight;
             }
 
-            function dibujarCristal(x, y, radio, rotacion, opacidad) {
-                ctx.save();
-                ctx.translate(x, y);
-                ctx.rotate(rotacion);
-                ctx.strokeStyle = `rgba(224, 242, 254, ${opacidad})`;
-                ctx.lineWidth = 1.15;
-                for (let i = 0; i < 3; i++) {
-                    ctx.rotate(Math.PI / 3);
-                    ctx.beginPath();
-                    ctx.moveTo(-radio, 0);
-                    ctx.lineTo(radio, 0);
-                    ctx.stroke();
-                }
-                ctx.restore();
-            }
-
-            function crearCopos() {
-                const cantidad = Math.min(150, Math.floor((width * height) / 9800));
-                copos = [];
+            function crearParticulas() {
+                const cantidad = Math.min(110, Math.floor((width * height) / 11500));
+                particulas = [];
                 for (let i = 0; i < cantidad; i++) {
-                    const tipo = Math.random();
-                    copos.push({
+                    const esDorada = Math.random() < 0.55;
+                    particulas.push({
                         x: Math.random() * width,
                         y: Math.random() * height,
-                        r: tipo < 0.16 ? Math.random() * 4.5 + 3.5 : Math.random() * 2.8 + 1.1,
-                        vy: Math.random() * 1.15 + 0.4,
-                        vx: (Math.random() - 0.5) * 0.45,
+                        r: Math.random() * 2.4 + 0.8,
+                        vy: (Math.random() * 0.55 + 0.18) * (esDorada ? -1 : 1),
+                        vx: (Math.random() - 0.5) * 0.3,
                         fase: Math.random() * Math.PI * 2,
                         velFase: Math.random() * 0.02 + 0.008,
-                        rot: Math.random() * Math.PI,
-                        velRot: (Math.random() - 0.5) * 0.02,
-                        opacidad: Math.random() * 0.68 + 0.25,
-                        esCristal: tipo < 0.16,
-                        esDorado: tipo >= 0.16 && tipo < 0.34
+                        opacidad: Math.random() * 0.65 + 0.2,
+                        esDorada
                     });
                 }
             }
@@ -1008,66 +1089,69 @@
             function animar() {
                 ctx.clearRect(0, 0, width, height);
 
-                for (let i = 0; i < copos.length; i++) {
-                    const c = copos[i];
-                    c.fase += c.velFase;
-                    c.rot += c.velRot;
-                    c.y += c.vy;
-                    c.x += c.vx + Math.sin(c.fase) * 0.45;
+                for (let i = 0; i < particulas.length; i++) {
+                    const p = particulas[i];
+                    p.fase += p.velFase;
+                    p.y += p.vy;
+                    p.x += p.vx + Math.sin(p.fase) * 0.35;
 
-                    if (c.y > height + 10) {
-                        c.y = -10;
-                        c.x = Math.random() * width;
+                    if (p.y > height + 10) {
+                        p.y = -10;
+                        p.x = Math.random() * width;
+                    } else if (p.y < -10) {
+                        p.y = height + 10;
+                        p.x = Math.random() * width;
                     }
-                    if (c.x > width + 10) c.x = -10;
-                    if (c.x < -10) c.x = width + 10;
+                    if (p.x > width + 10) p.x = -10;
+                    if (p.x < -10) p.x = width + 10;
 
-                    if (c.esCristal) {
-                        dibujarCristal(c.x, c.y, c.r, c.rot, c.opacidad);
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    if (p.esDorada) {
+                        ctx.fillStyle = `rgba(237, 210, 148, ${p.opacidad})`;
+                        ctx.shadowColor = 'rgba(237, 210, 148, 0.85)';
+                        ctx.shadowBlur = 7;
                     } else {
-                        ctx.beginPath();
-                        ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2);
-                        if (c.esDorado) {
-                            ctx.fillStyle = `rgba(233, 201, 130, ${c.opacidad})`;
-                            ctx.shadowColor = 'rgba(233, 201, 130, 0.9)';
-                            ctx.shadowBlur = 7;
-                        } else {
-                            ctx.fillStyle = `rgba(255, 255, 255, ${c.opacidad})`;
-                            ctx.shadowColor = 'rgba(186, 230, 253, 0.5)';
-                            ctx.shadowBlur = 4;
-                        }
-                        ctx.fill();
+                        ctx.fillStyle = `rgba(255, 255, 255, ${p.opacidad * 0.7})`;
                         ctx.shadowBlur = 0;
                     }
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
                 }
                 requestAnimationFrame(animar);
             }
 
             redimensionar();
-            crearCopos();
+            crearParticulas();
             animar();
 
             window.addEventListener('resize', () => {
                 redimensionar();
-                crearCopos();
+                crearParticulas();
             });
         }
 
         // =========================================================
-        // 2. ENLACES DE CALENDARIO Y ARCHIVO .ICS
+        // ENLACES DE CALENDARIO Y ARCHIVO .ICS (CON ITINERARIO)
         // =========================================================
         function configurarEnlaces() {
-            const titulo = encodeURIComponent('Fiesta de Navidad UTPL — Santo Domingo');
+            const titulo = encodeURIComponent('Cena Navideña UTPL — Santo Domingo');
             const ubicacion = encodeURIComponent('Santo Domingo, Ecuador');
             const detalle = encodeURIComponent(
-                'Fiesta de Navidad UTPL en Santo Domingo (Viernes 11 de Diciembre, 20:00 horas).'
+                'ITINERARIO OFICIAL:\n' +
+                '• Viernes 11 Dic - 12:00: Arribo a Santo Domingo\n' +
+                '• Viernes 11 Dic - 13:00: Almuerzo informal de bienvenida\n' +
+                '• Viernes 11 Dic - Tarde: Registro en el hotel\n' +
+                '• Viernes 11 Dic - 20:00: Cena Navideña de Gala e intercambio de Amigo Secreto\n' +
+                '• Sábado 12 Dic - 10:00: Retorno a ciudades de origen\n\n' +
+                'Invitación oficial: ' + URL_OFICIAL_PAGINA
             );
 
             document.getElementById('link-google-cal').href =
-                `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${titulo}&dates=20261212T010000Z/20261212T050000Z&details=${detalle}&location=${ubicacion}`;
+                `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${titulo}&dates=20261211T170000Z/20261212T150000Z&details=${detalle}&location=${ubicacion}`;
 
             document.getElementById('link-outlook-web').href =
-                `https://outlook.office.com/calendar/0/deeplink/compose?subject=${titulo}&startdt=2026-12-11T20:00:00&enddt=2026-12-11T23:59:00&body=${detalle}&location=${ubicacion}`;
+                `https://outlook.office.com/calendar/0/deeplink/compose?subject=${titulo}&startdt=2026-12-11T12:00:00&enddt=2026-12-12T10:00:00&body=${detalle}&location=${ubicacion}`;
         }
 
         function descargarICS(etiqueta) {
@@ -1076,20 +1160,20 @@
                 'VERSION:2.0',
                 'CALSCALE:GREGORIAN',
                 'METHOD:PUBLISH',
-                'PRODID:-//UTPL//Fiesta de Navidad 2026//ES',
+                'PRODID:-//UTPL//Cena Navidena 2026//ES',
                 'BEGIN:VEVENT',
-                'UID:utpl-navidad-2026@utpl.edu.ec',
-                'DTSTAMP:20261124T160000Z',
-                'DTSTART:20261212T010000Z',
-                'DTEND:20261212T050000Z',
-                'SUMMARY:Fiesta de Navidad UTPL — Santo Domingo',
+                'UID:utpl-cena-navidena-2026@utpl.edu.ec',
+                'DTSTAMP:20261126T180000Z',
+                'DTSTART:20261211T170000Z',
+                'DTEND:20261212T150000Z',
+                'SUMMARY:Cena Navideña UTPL — Santo Domingo',
                 'LOCATION:Santo Domingo, Ecuador',
-                'DESCRIPTION:Fiesta de Navidad UTPL en Santo Domingo (Viernes 11 de Diciembre, 20:00 horas).',
+                'DESCRIPTION:Viernes 11 Dic: 12:00 Llegada | 13:00 Almuerzo informal | Tarde Registro Hotel | 20:00 Cena Navideña de Gala y Amigo Secreto. Sábado 12 Dic: 10:00 Retorno. Enlace: ' + URL_OFICIAL_PAGINA,
                 'STATUS:CONFIRMED',
                 'BEGIN:VALARM',
-                'TRIGGER:-P2D',
+                'TRIGGER:-P1D',
                 'ACTION:DISPLAY',
-                'DESCRIPTION:Recordatorio: Fiesta de Navidad UTPL en Santo Domingo (20:00)',
+                'DESCRIPTION:Recordatorio: Cena Navideña UTPL en Santo Domingo',
                 'END:VALARM',
                 'END:VEVENT',
                 'END:VCALENDAR'
@@ -1099,7 +1183,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'Fiesta-Navidad-UTPL-2026.ics';
+            a.download = 'Cena-Navidena-UTPL-2026.ics';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -1125,7 +1209,7 @@
         }
 
         // =========================================================
-        // 3. CUENTA REGRESIVA AL VIERNES 11 DE DICIEMBRE 2026 (20:00)
+        // CUENTA REGRESIVA A LA CENA NAVIDEÑA (11 DIC 2026, 20:00)
         // =========================================================
         function iniciarCuentaRegresiva() {
             const meta = new Date('2026-12-11T20:00:00-05:00').getTime();
@@ -1154,8 +1238,7 @@
         }
 
         window.addEventListener('load', () => {
-            cargarSorteo();
-            iniciarNieve();
+            iniciarAmbiente();
             configurarEnlaces();
             iniciarCuentaRegresiva();
         });
